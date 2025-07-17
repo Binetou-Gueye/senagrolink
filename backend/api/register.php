@@ -7,6 +7,7 @@ header("Content-Type: application/json");
 
 require_once __DIR__.'/../models/Utilisateur.php';
 require_once __DIR__.'/../models/Agriculteur.php';
+require_once __DIR__.'/../models/Boutique.php';
 
 // Connexion DB (à mettre dans un fichier séparé si nécessaire)
 $pdo = new PDO("mysql:host=localhost;dbname=senagrolink", "root", "");
@@ -38,9 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $userId,
                 $data['type_production']
             );
+            // Création automatique de la boutique
+            $boutique = new Boutique($pdo);
+            $boutique->creerBoutique(
+                $userId, // id_agriculteur
+                'user.png', // Avatar par défaut
+                $data['localisation'] // Utilise la localisation comme emplacement initial
+            );
         }
         
-        echo json_encode([
+        echo json_encode(   [
             'success' => true,
             'userId' => $userId
         ]);
