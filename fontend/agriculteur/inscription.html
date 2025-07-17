@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Agriculteur</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inscription Agriculteur</h1>
+        </header>
+
+        <main>
+            <form id="inscriptionForm">
+                <div class="form-group">
+                    <label for="nom">Nom complet</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="localisation">Localisation</label>
+                    <input type="text" id="localisation" name="localisation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+
+                <div class="form-group">
+                    <label for="type_production">Type de production</label>
+                    <select id="type_production" name="type_production" required>
+                        <option value="">Sélectionnez...</option>
+                        <option value="cereales">Céréales</option>
+                        <option value="legumes">Légumes</option>
+                        <option value="fruits">Fruits</option>
+                        <option value="elevage">Élevage</option>
+                        <option value="viticulture">Viticulture</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">S'inscrire</button>
+            </form>
+
+            <div id="message" class="message"></div>
+        </main>
+    </div>
+
+    <script src="../js/inscription-agriculteur.js"></script>
+</body>
+</html>

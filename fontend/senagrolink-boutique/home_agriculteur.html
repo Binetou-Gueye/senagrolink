@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Agriculteur | SenAgroLink</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #558b2f;
+            --accent-color: #8bc34a;
+            --light-color: #f1f8e9;
+            --dark-color: #1b5e20;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .welcome-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-card, .farm-card, .products-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: none;
+            transition: transform 0.3s;
+        }
+        
+        .profile-card:hover, .farm-card:hover, .products-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-header {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .btn-agri {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-agri:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .product-item {
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .product-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .badge-organic {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            font-weight: bold;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            border: none;
+            padding: 0.75rem 1.5rem;
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-bar navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="index.html">Acceuil</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="boutique.html">Boutique</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="agriculteur.html">Mon espace</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="contact.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" style="background-color: #2e7d32; color: white;" href="#" data-bs-toggle="modal" data-bs-target="#deconnexionModal">Déconnexion</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
+    </nav>
+    
+    <!-- Section Bienvenue -->
+    <section class="welcome-section text-center"  style="margin-top: 50px;">
+        <div class="container welcome-content">
+            <h1 id="welcomeMessage" class="fw-bold mb-3">Bienvenue dans votre espace agriculteur, <span id="affNom"></span> !</h1>
+            <p class="lead">Gérez votre exploitation et connectez-vous avec vos clients</p>
+            <a href="boutique.html" class="btn btn-agri mt-3">
+                <i class="fas fa-store me-2"></i>Accéder au marché
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de gauche - Profil et Statistiques -->
+            <div class="col-lg-4">
+                <!-- Carte Profil -->
+                <div class="card profile-card mb-4">
+                    <div class="profile-header">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Photo de profil" class="profile-pic" id="farmerProfilePic">
+                        <h3 id="farmerNameDisplay">d</h3>
+                        <p class="text-muted" id="farmerSpecialtyDisplay"></p>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="fas fa-envelope me-2 text-primary"></i>
+                                <span id="farmerEmailDisplay"></span>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-phone me-2 text-primary"></i>
+                                <span id="farmerPhoneDisplay"></span>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                <span id="farmerLocationDisplay"></span>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                                Membre depuis <span id="registrationDateDisplay"></span>
+                            </li>
+                        </ul>
+                        <div class="d-grid mt-3">
+                            <a href="#" class="btn btn-outline-primary">
+                                <i class="fas fa-edit me-2"></i>Modifier le profil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Statistiques -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-12">
+                        <div class="stats-card">
+                            <div class="stats-number" id="totalProducts">0</div>
+                            <div class="stats-label">Produits en vente</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="stats-card">
+                            <div class="stats-number" id="totalOrders">0</div>
+                            <div class="stats-label">Commandes ce mois</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="stats-card">
+                            <div class="stats-number" id="customerRating">4.8</div>
+                            <div class="stats-label">Note moyenne</div>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne de droite - Contenu principal -->
+            <div class="col-lg-8">
+                <!-- Navigation par onglets -->
+                <ul class="nav nav-tabs mb-4" id="farmerTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="farm-tab" data-bs-toggle="tab" data-bs-target="#farm" type="button" role="tab">Mon Exploitation</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab">Mes Produits</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab">Commandes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button" role="tab">Statistiques</button>
+                    </li>
+                </ul>
+                
+                <!-- Contenu des onglets -->
+                <div class="tab-content" id="farmerTabContent">
+                    <!-- Onglet Exploitation -->
+                    <div class="tab-pane fade show active" id="farm" role="tabpanel">
+                        <div class="card farm-card">
+                            <div class="card-header bg-success text-white">
+                                <h4><i class="fas fa-tractor me-2"></i>Informations sur l'exploitation</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 id="farmNameDisplay"></h5>
+                                        <p class="text-muted" id="farmTypeDisplay"></p>
+                                        <p><i class="fas fa-map-marked-alt me-2 text-primary"></i> <span id="farmLocationDisplay"></span></p>
+                                        <p><i class="fas fa-ruler-combined me-2 text-primary"></i> Superficie: <span id="farmSizeDisplay"></span></p>
+                                        <p><i class="fas fa-certificate me-2 text-primary"></i> Certification: <span id="farmCertificationDisplay"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="farmDescriptionDisplay"></div>
+                                        <div class="mt-3">
+                                            <h6>Progression des cultures</h6>
+                                            <div class="mb-3">
+                                                <label>Préparation des sols <span class="float-end">75%</span></label>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 75%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>Semis <span class="float-end">40%</span></label>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 40%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>Récolte <span class="float-end">15%</span></label>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 15%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-calendar-alt feature-icon"></i>
+                                        <h5>Calendrier Agricole</h5>
+                                        <p>Planifiez vos activités et suivez votre emploi du temps</p>
+                                        <a href="calendrier.html" class="btn btn-outline-success">Accéder</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-book feature-icon"></i>
+                                        <h5>Carnet de Champs</h5>
+                                        <p>Enregistrez vos observations et suivis culturaux</p>
+                                        <a href="carnet.html" class="btn btn-outline-success">Ouvrir</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Onglet Produits -->
+                    <div class="tab-pane fade" id="products" role="tabpanel">
+                        <div class="card products-card">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h4><i class="fas fa-shopping-basket me-2"></i>Mes Produits</h4>
+                                <a href="ajout_produit.html" class="btn btn-light btn-sm">
+                                <i class="fas fa-plus me-1"></i>Ajouter
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div id="productsList">
+                                    <!-- Produits seront chargés ici dynamiquement -->
+                                    <div class="product-item">
+                                        <div class="d-flex justify-content-between">
+                                            <h5>Tomates Bio</h5>
+                                            <span class="badge badge-organic">Bio</span>
+                                        </div>
+                                        <p class="text-muted">Variété: Cerise</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold text-success">500 FCFA/kg</span>
+                                            <div>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-item">
+                                        <div class="d-flex justify-content-between">
+                                            <h5>Carottes</h5>
+                                            <span class="badge bg-secondary">Conventionnel</span>
+                                        </div>
+                                        <p class="text-muted">Variété: Nantaise</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold text-success">800 FCFA/kg</span>
+                                            <div>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-4">
+                                    <a href="ajout_produit.html" class="btn btn-light btn-sm">
+                                <i class="fas fa-plus me-1"></i>Ajouter un nouveau produit
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Onglet Commandes -->
+                    <div class="tab-pane fade" id="orders" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h4><i class="fas fa-clipboard-list me-2"></i>Commandes Récentes</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>N° Commande</th>
+                                                <th>Date</th>
+                                                <th>Client</th>
+                                                <th>Montant</th>
+                                                <th>Statut</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ordersTableBody">
+                                            <!-- Commandes seront chargées ici dynamiquement -->
+                                            <tr>
+                                                <td>#12345</td>
+                                                <td>15/06/2023</td>
+                                                <td>Abdoulaye Diop</td>
+                                                <td>12,500 FCFA</td>
+                                                <td><span class="badge bg-success">Livré</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#12344</td>
+                                                <td>14/06/2023</td>
+                                                <td>Aïssatou Fall</td>
+                                                <td>8,200 FCFA</td>
+                                                <td><span class="badge bg-warning text-dark">En cours</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Onglet Statistiques -->
+                    <div class="tab-pane fade" id="stats" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h4><i class="fas fa-chart-line me-2"></i>Statistiques de Vente</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Ventes mensuelles</h5>
+                                        <canvas id="monthlySalesChart" height="200"></canvas>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Produits les plus vendus</h5>
+                                        <canvas id="topProductsChart" height="200"></canvas>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <h5>Revenus annuels</h5>
+                                        <canvas id="annualRevenueChart" height="150"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="mt-5 p-5">                                    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="left px-2">
+                        <p>
+                            Merci de votre visite chez SenAgroLink. Votre allié pour une meilleure proximité aux produits locaux.
+                        </p>
+                        <div class="social-side d-flex gap-4 ">
+                            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                </svg>
+                            </a>
+                            <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                </svg>
+                            </a>
+                            <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            data-aos="fade-up" 
+                            data-aos-delay="500" 
+                            data-aos-duration="2500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="horaire p-2">
+                        <ul>
+                            <h4>Ressources </h4>
+                            <li class="text-white">
+                                <strong class="me-2">Guides agricoles</strong>
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Prix du marché</strong> 
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">FAQ</strong> 
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Blog</strong> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="middle px-2 text-white">
+                        <ul class="lh-lg">
+                            <li class="">
+                                <a href="index.html">Accueil</a>
+                            </li>
+                            <li class="">
+                                <a href="produits.html">Produits</a>
+                            </li>
+                            <li class="">
+                                <a href="marche.html">Marché</a>
+                            </li>
+                            <li class="">
+                                <a href="galerie.html">Galerie</a>
+                            </li>
+                            <li class="">
+                                <a href="inscription.html">Inscription</a>
+                            </li>
+                            <li class="">
+                                <a href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="right px-2">
+                        <form action="">
+                            <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                                <label for="newletter" class="form-label">S'inscrire à notre Newsletter</label>
+                                <input type="text" name="newletter" id="newletter" class="form-control">
+                                <button type="submit" class="btn btn-success">S'inscrire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-12">
+                    Copyright 2024 by@SenAgroLink - le marché agricole au bout des doigts
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer les données de l'agriculteur depuis le localStorage
+            const farmerData = JSON.parse(localStorage.getItem('currentUser')) || {};
+            
+            // Afficher les informations du profil si elles existent
+            if (farmerData.nom) {
+                console.log(document.getElementById('farmerNameDisplay'))
+                document.getElementById('welcomeMessage').textContent = `Bienvenue dans votre espace agriculteur, ${farmerData.nom} !`;
+                document.getElementById('farmerNameDisplay').textContent  = farmerData.nom;
+                document.getElementById('farmerEmailDisplay').textContent = farmerData.email;
+                document.getElementById('farmerPhoneDisplay').textContent = farmerData.telephone;
+                document.getElementById('farmerLocationDisplay').textContent = farmerData.localisation;
+                document.getElementById('farmerSpecialtyDisplay').textContent = farmerData.specialty || 'Agriculteur';
+                document.getElementById('registrationDateDisplay').textContent = farmerData.registrationDate || new Date().toLocaleDateString();
+                
+                // Informations sur l'exploitation
+                document.getElementById('farmNameDisplay').textContent = farmerData.farmName || 'Ma Ferme';
+                document.getElementById('farmTypeDisplay').textContent = farmerData.farmType || 'Polyculture';
+                document.getElementById('farmLocationDisplay').textContent = farmerData.farmLocation || farmerData.location || '';
+                document.getElementById('farmSizeDisplay').textContent = farmerData.farmSize || 'Non spécifié';
+                document.getElementById('farmCertificationDisplay').textContent = farmerData.certification || 'Non certifié';
+                document.getElementById('farmDescriptionDisplay').innerHTML = farmerData.description || 
+                    `<p>Exploitation agricole spécialisée dans la production de fruits et légumes de qualité.</p>
+                     <p>Méthodes respectueuses de l'environnement et circuits courts.</p>`;
+                
+                // Statistiques
+                document.getElementById('totalProducts').textContent = farmerData.productsCount || '12';
+                document.getElementById('totalOrders').textContent = farmerData.monthlyOrders || '5';
+            }
+
+            // Initialiser les graphiques
+            initCharts();
+            
+            // Gestion des onglets
+            const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
+            tabEls.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', function (event) {
+                    if (event.target.id === 'stats-tab') {
+                        // Re-initialiser les graphiques quand l'onglet stats est affiché
+                        initCharts();
+                    }
+                });
+            });
+        });
+
+        function initCharts() {
+            // Graphique des ventes mensuelles
+            const monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+            const monthlySalesChart = new Chart(monthlySalesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+                    datasets: [{
+                        label: 'Ventes (en milliers FCFA)',
+                        data: [120, 190, 150, 220, 180, 250, 210, 230, 280, 300, 320, 350],
+                        backgroundColor: '#8bc34a',
+                        borderColor: '#558b2f',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Graphique des produits les plus vendus
+            const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+            const topProductsChart = new Chart(topProductsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Tomates', 'Carottes', 'Oignons', 'Pommes de terre', 'Salades'],
+                    datasets: [{
+                        data: [35, 25, 20, 15, 5],
+                        backgroundColor: [
+                            '#2e7d32',
+                            '#558b2f',
+                            '#8bc34a',
+                            '#aed581',
+                            '#dce775'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // Graphique des revenus annuels
+            const annualRevenueCtx = document.getElementById('annualRevenueChart').getContext('2d');
+            const annualRevenueChart = new Chart(annualRevenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+                    datasets: [{
+                        label: 'Revenus annuels (en millions FCFA)',
+                        data: [1.2, 1.8, 2.1, 2.5, 3.0, 3.8],
+                        fill: false,
+                        backgroundColor: '#2e7d32',
+                        borderColor: '#2e7d32',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Gestion du formulaire d'inscription agriculteur (si présent sur la page)
+        const farmerForm = document.getElementById("farmerForm");
+        if (farmerForm) {
+            farmerForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const farmerData = {
+                    name: document.getElementById('farmerName').value,
+                    email: document.getElementById('farmerEmail').value,
+                    phone: document.getElementById('farmerPhone').value,
+                    location: document.getElementById('farmerLocation').value,
+                    specialty: document.getElementById('farmerSpecialty').value,
+                    farmName: document.getElementById('farmName').value,
+                    farmType: document.getElementById('farmType').value,
+                    farmSize: document.getElementById('farmSize').value,
+                    certification: document.getElementById('certification').value,
+                    description: document.getElementById('farmDescription').value,
+                    registrationDate: new Date().toLocaleDateString()
+                };
+                localStorage.setItem('farmerData', JSON.stringify(farmerData));
+                window.location.href = 'agriculteur.html';
+            });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferme Bio de Niayes | SenAgroLink</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <!-- swipper js -->
+     <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+   />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+   <!-- font awsome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!-- cnd icon -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #558b2f;
+            --accent-color: #8bc34a;
+            --light-color: #f1f8e9;
+            --dark-color: #1b5e20;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        /*Supprimer le background en animation dans le style.css*/
+        header {
+    animation: none !important;/* Supprimer l'animation de fond */
+    background-image:url('pictures/boutiqueniayes.jpg') !important; /* ou l'URL de ton choix */
+    background-color: #f1f8e9 !important; /* ou la couleur de ton choix */
+}
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+        }
+        
+        /* Shop Header */
+        .shop-header {
+          
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Supprimer l'animation SVG de background */
+        .shop-header::before {
+            display: none !important;
+        }
+        
+        .shop-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .shop-location {
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .shop-rating {
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            color: var(--dark-color);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Product Card */
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .product-body {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .add-to-cart.clicked {
+            animation: pulse 0.5s;
+        }
+        
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: var(--white);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 0;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .cart-items {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .cart-item-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #ff5252;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .cart-summary {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .empty-cart-icon {
+            font-size: 3rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+        
+        /* Cart Button */
+        .cart-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cart-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff5252;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .shop-title {
+                font-size: 2rem;
+            }
+            
+            .shop-location {
+                font-size: 1rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .product-img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+      <ul class="nav-bar">
+          <li class="logo"><a href="#">
+              <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;" />
+          </a></li>
+          <input type="checkbox"  id="check">
+          <span class="menu">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="produits.html">Produits</a></li>
+              <li><a href="galerie.html">Galerie</a></li>
+              <li><a href="marche.html">Marche</a></li>
+              <li><a href="inscription.html">Inscription</a></li>
+              <li><a href="contact.html">contact</a></li>
+              <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
+          </span>
+          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+      </ul>
+  </nav>
+
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="container animate-fade">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="shop-title"> Mbay de Niayes</h1>
+                    <p class="shop-location">
+                        <i class="bi bi-geo-alt"></i> Dakar, Niayes
+                    </p>
+                    <div class="shop-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <span>4.8 (124 avis)</span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title animate-fade">Nos Produits</h2>
+            
+            <div class="row">
+                <!-- Produit 1 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.1s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/sobleh.jpg"  alt="Oignons Rouges" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Oignons Rouges</h3>
+                            <p class="product-description">Des oignons rouges cultivés localement à haut rendement!</p>
+                            <span class="product-price">500 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/Legum8.jpg" alt="Carottes Fraîches" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Carottes Fraîches</h3>
+                            <p class="product-description">Des carottes bien sucrées, cultivées sans produits chimiques.</p>
+                            <span class="product-price">350 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
+                    <div class="product-card">
+                        <div class="product-badge">Nouveau</div>
+                        <img src="pictures/pomme de terre1.jpg" alt="pomme de terre" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Pommes de Terre</h3>
+                            <p class="product-description">Pommes de terre de qualité supérieure. Prix bas toute l’année !</p>
+                            <span class="product-price">450 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
+                    <div class="product-card">
+                        <img src="pictures/Legum7.jpg" alt="Oignons Rouges" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Poivrons</h3>
+                            <p class="product-description">Poivron local bien frais, croquant et parfumé. </p>
+                            <span class="product-price">400 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.5s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/Chou1.jpg" alt="Chou Vert Frais" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title"> Chou Vert Frais</h3>
+                            <p class="product-description">Chou fraîchement récolté, riche en fibres et vitamines.</p>
+                            <span class="product-price"> 300 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Button -->
+    <div class="cart-btn">
+        <i class="bi bi-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Votre Panier</h3>
+            <button class="close-cart"><i class="bi bi-x-lg"></i></button>
+        </div>
+        
+        <div class="cart-items">
+            <!-- Les articles seront ajoutés dynamiquement ici -->
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="bi bi-cart-x"></i>
+                </div>
+                <p>Votre panier est vide</p>
+                <button class="btn btn-outline-success mt-2">Continuer vos achats</button>
+            </div>
+        </div>
+        
+        <div class="cart-summary">
+            <div class="cart-summary-row">
+                <span>Sous-total:</span>
+                <span class="cart-subtotal">0 FCFA</span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Livraison:</span>
+                <span class="cart-delivery">À calculer</span>
+            </div>
+            <hr>
+            <div class="cart-summary-row">
+                <span class="cart-total">Total:</span>
+                <span class="cart-total-price">0 FCFA</span>
+            </div>
+        </div>
+        
+        <button class="checkout-btn">Passer la commande</button>
+    </div>
+
+    <!-- Votre Footer existant -->
+    <footer class="mt-5 p-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="left px-2">
+                  <p>
+                      Merci de votre visite chez SenAgroLink. Votre allie pour une meilleure proximite aux produits locaux.
+                  </p>
+                  <div class="social-side d-flex gap-4 ">
+                      <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                            </svg>
+                      </a>
+                      <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                            </svg>
+                      </a>
+                      <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                              <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                            </svg>
+                      </a>
+                      <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       data-aos="fade-up" 
+                       data-aos-delay="500" 
+                       data-aos-duration="2500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+
+                   </a>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="horaire p-2">
+                  <ul>
+                      <h4>Ressources </h4>
+                      <li class="text-white">
+                          <strong class="me-2">Guides agricoles</strong >
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">Prix du marche</strong > 
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">FAQ</strong > 
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">Blog</strong > 
+                      </li>
+                     
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="middle px-2 text-white">
+                  <ul class="lh-lg">
+                          <li class="">
+                              <a href="index.html">Accueil</a>
+                          </li>
+                          <li class="">
+                              <a href="produits.html">Produits</a>
+                          </li>
+                          <li class="">
+                              <a href="marche.html">Marche</a>
+                          </li>
+                          <li class="">
+                              <a href="galerie.html">Galerie</a>
+                          </li>
+                          <li class="">
+                              <a href="inscription.html">Inscription</a>
+                          </li>
+                          <li class="">
+                              <a href="contact.html">Contact</a>
+                          </li>
+                     
+
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="right px-2">
+                  <form action="">
+                      <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                          <label for="newletter" class="form-label">S'inscrire a notre Newletter</label>
+                          <input type="text" name="newletter" id="newletter" class="form-control">
+                          <button type="submit">S'inscrire</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-5 text-center">
+          <div class="col-md-12">
+                  Copyright 2024 by@SenAgroLink le marché agricole au bout des doigts 
+
+          </div>
+          
+      </div>
+  </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables
+            const cartBtn = document.querySelector('.cart-btn');
+            const cartSidebar = document.querySelector('.cart-sidebar');
+            const closeCartBtn = document.querySelector('.close-cart');
+            const addToCartBtns = document.querySelectorAll('.add-to-cart');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartCount = document.querySelector('.cart-count');
+            const cartSubtotal = document.querySelector('.cart-subtotal');
+            const cartTotal = document.querySelector('.cart-total-price');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            
+            let cart = [];
+            
+            // Ouvrir/fermer le panier
+            cartBtn.addEventListener('click', toggleCart);
+            closeCartBtn.addEventListener('click', toggleCart);
+            
+            function toggleCart() {
+                cartSidebar.classList.toggle('active');
+            }
+            
+            // Ajouter au panier
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Animation du bouton
+                    this.classList.add('clicked');
+                    setTimeout(() => this.classList.remove('clicked'), 500);
+                    
+                    // Récupérer les infos du produit
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    const productPriceText = productCard.querySelector('.product-price').textContent;
+                    const productPrice = extractPrice(productPriceText);
+                    const productImage = productCard.querySelector('.product-img').src;
+                    const productQuantity = parseInt(productCard.querySelector('.quantity-input').value);
+                    
+                    // Vérifier si le produit est déjà dans le panier
+                    const existingItem = cart.find(item => item.name === productName);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += productQuantity;
+                    } else {
+                        cart.push({
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: productQuantity
+                        });
+                    }
+                    
+                    // Mettre à jour le panier
+                    updateCart();
+                    
+                    // Ouvrir le panier
+                    cartSidebar.classList.add('active');
+                });
+            });
+            
+            // Extraire le prix du texte
+            function extractPrice(priceText) {
+                // Supprimer tout ce qui n'est pas chiffre ou point
+                const numericValue = priceText.replace(/[^0-9.]/g, '');
+                return parseFloat(numericValue);
+            }
+            
+            // Mettre à jour le panier
+            function updateCart() {
+                // Mettre à jour le compteur
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                
+                // Afficher/masquer le compteur
+                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                
+                // Mettre à jour les articles du panier
+                if (cart.length > 0) {
+                    let cartHTML = '';
+                    let subtotal = 0;
+                    
+                    cart.forEach((item, index) => {
+                        const itemTotal = item.price * item.quantity;
+                        subtotal += itemTotal;
+                        
+                        cartHTML += `
+                            <div class="cart-item" data-index="${index}">
+                                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                                <div class="cart-item-details">
+                                    <h4 class="cart-item-title">${item.name}</h4>
+                                    <span class="cart-item-price">${formatPrice(item.price)} FCFA</span>
+                                    <div class="cart-item-quantity">
+                                        <button class="quantity-btn minus">-</button>
+                                        <span>${item.quantity}</span>
+                                        <button class="quantity-btn plus">+</button>
+                                        <button class="cart-item-remove">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    cartItemsContainer.innerHTML = cartHTML;
+                    
+                    // Mettre à jour les totaux
+                    cartSubtotal.textContent = `${formatPrice(subtotal)} FCFA`;
+                    cartTotal.textContent = `${formatPrice(subtotal)} FCFA`;
+                    
+                    // Ajouter les événements aux nouveaux boutons
+                    addCartItemEvents();
+                } else {
+                    cartItemsContainer.innerHTML = `
+                        <div class="empty-cart">
+                            <div class="empty-cart-icon">
+                                <i class="bi bi-cart-x"></i>
+                            </div>
+                            <p>Votre panier est vide</p>
+                            <button class="btn btn-outline-success mt-2">Continuer vos achats</button>
+                        </div>
+                    `;
+                    cartSubtotal.textContent = '0 FCFA';
+                    cartTotal.textContent = '0 FCFA';
+                }
+            }
+            
+            // Formater le prix avec séparateur de milliers
+            function formatPrice(price) {
+                return price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            }
+            
+            // Ajouter les événements aux éléments du panier
+            function addCartItemEvents() {
+                // Boutons plus/moins
+                document.querySelectorAll('.cart-item .quantity-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity--;
+                            updateCart();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.cart-item .quantity-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        cart[index].quantity++;
+                        updateCart();
+                    });
+                });
+                
+                // Boutons supprimer
+                document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        cart.splice(index, 1);
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Passer la commande
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length > 0) {
+                    alert('Commande passée avec succès! Total: ' + cartTotal.textContent);
+                    cart = [];
+                    updateCart();
+                    cartSidebar.classList.remove('active');
+                } else {
+                    alert('Votre panier est vide!');
+                }
+            });
+            
+            // Gestion des quantités sur les produits
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.nextElementSibling;
+                    if (parseInt(input.value) > 1) {
+                        input.value = parseInt(input.value) - 1;
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    input.value = parseInt(input.value) + 1;
+                });
+            });
+            
+            // Initialiser le panier
+            updateCart();
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferme Bio de Niayes | SenAgroLink</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <!-- swipper js -->
+     <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+   />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+   <!-- font awsome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!-- cnd icon -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #558b2f;
+            --accent-color: #8bc34a;
+            --light-color: #f1f8e9;
+            --dark-color: #1b5e20;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        /*Supprimer le background en animation dans le style.css*/
+        header {
+    animation: none !important;/* Supprimer l'animation de fond */
+    background-image:url('pictures/boutiqueniayes.jpg') !important; /* ou l'URL de ton choix */
+    background-color: #f1f8e9 !important; /* ou la couleur de ton choix */
+}
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+        }
+        
+        /* Shop Header */
+        .shop-header {
+          
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Supprimer l'animation SVG de background */
+        .shop-header::before {
+            display: none !important;
+        }
+        
+        .shop-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .shop-location {
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .shop-rating {
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            color: var(--dark-color);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Product Card */
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .product-body {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .add-to-cart.clicked {
+            animation: pulse 0.5s;
+        }
+        
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: var(--white);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 0;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .cart-items {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .cart-item-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #ff5252;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .cart-summary {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .empty-cart-icon {
+            font-size: 3rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+        
+        /* Cart Button */
+        .cart-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cart-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff5252;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .shop-title {
+                font-size: 2rem;
+            }
+            
+            .shop-location {
+                font-size: 1rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .product-img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+      <ul class="nav-bar">
+          <li class="logo"><a href="#">
+              <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;" />
+          </a></li>
+          <input type="checkbox"  id="check">
+          <span class="menu">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="produits.html">Produits</a></li>
+              <li><a href="galerie.html">Galerie</a></li>
+              <li><a href="marche.html">Marche</a></li>
+              <li><a href="inscription.html">Inscription</a></li>
+              <li><a href="contact.html">contact</a></li>
+              <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
+          </span>
+          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+      </ul>
+  </nav>
+
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="container animate-fade">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="shop-title"> Mbay de Niayes</h1>
+                    <p class="shop-location">
+                        <i class="bi bi-geo-alt"></i> Dakar, Niayes
+                    </p>
+                    <div class="shop-rating">
+                        <i class="bi bi-star-fill"></i>
+                        <span>4.8 (124 avis)</span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title animate-fade">Nos Produits</h2>
+            
+            <div class="row">
+                <!-- Produit 1 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.1s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/sobleh.jpg"  alt="Oignons Rouges" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Oignons Rouges</h3>
+                            <p class="product-description">Des oignons rouges cultivés localement à haut rendement!</p>
+                            <span class="product-price">500 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/Legum8.jpg" alt="Carottes Fraîches" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Carottes Fraîches</h3>
+                            <p class="product-description">Des carottes bien sucrées, cultivées sans produits chimiques.</p>
+                            <span class="product-price">350 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
+                    <div class="product-card">
+                        <div class="product-badge">Nouveau</div>
+                        <img src="pictures/pomme de terre1.jpg" alt="pomme de terre" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Pommes de Terre</h3>
+                            <p class="product-description">Pommes de terre de qualité supérieure. Prix bas toute l’année !</p>
+                            <span class="product-price">450 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
+                    <div class="product-card">
+                        <img src="pictures/Legum7.jpg" alt="Oignons Rouges" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title">Poivrons</h3>
+                            <p class="product-description">Poivron local bien frais, croquant et parfumé. </p>
+                            <span class="product-price">400 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 -->
+                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.5s">
+                    <div class="product-card">
+                       
+                        <img src="pictures/Chou1.jpg" alt="Chou Vert Frais" class="product-img">
+                        <div class="product-body">
+                            <h3 class="product-title"> Chou Vert Frais</h3>
+                            <p class="product-description">Chou fraîchement récolté, riche en fibres et vitamines.</p>
+                            <span class="product-price"> 300 FCFA/kg</span>
+                            <div class="product-footer">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="bi bi-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Button -->
+    <div class="cart-btn">
+        <i class="bi bi-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Votre Panier</h3>
+            <button class="close-cart"><i class="bi bi-x-lg"></i></button>
+        </div>
+        
+        <div class="cart-items">
+            <!-- Les articles seront ajoutés dynamiquement ici -->
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="bi bi-cart-x"></i>
+                </div>
+                <p>Votre panier est vide</p>
+                <button class="btn btn-outline-success mt-2">Continuer vos achats</button>
+            </div>
+        </div>
+        
+        <div class="cart-summary">
+            <div class="cart-summary-row">
+                <span>Sous-total:</span>
+                <span class="cart-subtotal">0 FCFA</span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Livraison:</span>
+                <span class="cart-delivery">À calculer</span>
+            </div>
+            <hr>
+            <div class="cart-summary-row">
+                <span class="cart-total">Total:</span>
+                <span class="cart-total-price">0 FCFA</span>
+            </div>
+        </div>
+        
+                <a href="acheteur.html" class="btn btn-success"  onclick="validateOrder()">Passer la commande</a>    </div>
+    </div>
+
+    <!-- Votre Footer existant -->
+    <footer class="mt-5 p-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="left px-2">
+                  <p>
+                      Merci de votre visite chez SenAgroLink. Votre allie pour une meilleure proximite aux produits locaux.
+                  </p>
+                  <div class="social-side d-flex gap-4 ">
+                      <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                            </svg>
+                      </a>
+                      <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                            </svg>
+                      </a>
+                      <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                              <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                            </svg>
+                      </a>
+                      <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       data-aos="fade-up" 
+                       data-aos-delay="500" 
+                       data-aos-duration="2500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+
+                   </a>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="horaire p-2">
+                  <ul>
+                      <h4>Ressources </h4>
+                      <li class="text-white">
+                          <strong class="me-2">Guides agricoles</strong >
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">Prix du marche</strong > 
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">FAQ</strong > 
+                      </li>
+                      <li class="text-white">
+                          <strong class="me-2">Blog</strong > 
+                      </li>
+                     
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="middle px-2 text-white">
+                  <ul class="lh-lg">
+                          <li class="">
+                              <a href="index.html">Accueil</a>
+                          </li>
+                          <li class="">
+                              <a href="produits.html">Produits</a>
+                          </li>
+                          <li class="">
+                              <a href="marche.html">Marche</a>
+                          </li>
+                          <li class="">
+                              <a href="galerie.html">Galerie</a>
+                          </li>
+                          <li class="">
+                              <a href="inscription.html">Inscription</a>
+                          </li>
+                          <li class="">
+                              <a href="contact.html">Contact</a>
+                          </li>
+                     
+
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-3 p-2">
+              <div class="right px-2">
+                  <form action="">
+                      <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                          <label for="newletter" class="form-label">S'inscrire a notre Newletter</label>
+                          <input type="text" name="newletter" id="newletter" class="form-control">
+                          <button type="submit">S'inscrire</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-5 text-center">
+          <div class="col-md-12">
+                  Copyright 2024 by@SenAgroLink le marché agricole au bout des doigts 
+
+          </div>
+          
+      </div>
+  </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables
+            const cartBtn = document.querySelector('.cart-btn');
+            const cartSidebar = document.querySelector('.cart-sidebar');
+            const closeCartBtn = document.querySelector('.close-cart');
+            const addToCartBtns = document.querySelectorAll('.add-to-cart');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartCount = document.querySelector('.cart-count');
+            const cartSubtotal = document.querySelector('.cart-subtotal');
+            const cartTotal = document.querySelector('.cart-total-price');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            
+            let cart = [];
+            
+            // Ouvrir/fermer le panier
+            cartBtn.addEventListener('click', toggleCart);
+            closeCartBtn.addEventListener('click', toggleCart);
+            
+            function toggleCart() {
+                cartSidebar.classList.toggle('active');
+            }
+            
+            // Ajouter au panier
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Animation du bouton
+                    this.classList.add('clicked');
+                    setTimeout(() => this.classList.remove('clicked'), 500);
+                    
+                    // Récupérer les infos du produit
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    const productPriceText = productCard.querySelector('.product-price').textContent;
+                    const productPrice = extractPrice(productPriceText);
+                    const productImage = productCard.querySelector('.product-img').src;
+                    const productQuantity = parseInt(productCard.querySelector('.quantity-input').value);
+                    
+                    // Vérifier si le produit est déjà dans le panier
+                    const existingItem = cart.find(item => item.name === productName);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += productQuantity;
+                    } else {
+                        cart.push({
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: productQuantity
+                        });
+                    }
+                    
+                    // Mettre à jour le panier
+                    updateCart();
+                    
+                    // Ouvrir le panier
+                    cartSidebar.classList.add('active');
+                });
+            });
+            
+            // Extraire le prix du texte
+            function extractPrice(priceText) {
+                // Supprimer tout ce qui n'est pas chiffre ou point
+                const numericValue = priceText.replace(/[^0-9.]/g, '');
+                return parseFloat(numericValue);
+            }
+            
+            // Mettre à jour le panier
+            function updateCart() {
+                // Mettre à jour le compteur
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                
+                // Afficher/masquer le compteur
+                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                
+                // Mettre à jour les articles du panier
+                if (cart.length > 0) {
+                    let cartHTML = '';
+                    let subtotal = 0;
+                    
+                    cart.forEach((item, index) => {
+                        const itemTotal = item.price * item.quantity;
+                        subtotal += itemTotal;
+                        
+                        cartHTML += `
+                            <div class="cart-item" data-index="${index}">
+                                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                                <div class="cart-item-details">
+                                    <h4 class="cart-item-title">${item.name}</h4>
+                                    <span class="cart-item-price">${formatPrice(item.price)} FCFA</span>
+                                    <div class="cart-item-quantity">
+                                        <button class="quantity-btn minus">-</button>
+                                        <span>${item.quantity}</span>
+                                        <button class="quantity-btn plus">+</button>
+                                        <button class="cart-item-remove">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    cartItemsContainer.innerHTML = cartHTML;
+                    
+                    // Mettre à jour les totaux
+                    cartSubtotal.textContent = `${formatPrice(subtotal)} FCFA`;
+                    cartTotal.textContent = `${formatPrice(subtotal)} FCFA`;
+                    
+                    // Ajouter les événements aux nouveaux boutons
+                    addCartItemEvents();
+                } else {
+                    cartItemsContainer.innerHTML = `
+                        <div class="empty-cart">
+                            <div class="empty-cart-icon">
+                                <i class="bi bi-cart-x"></i>
+                            </div>
+                            <p>Votre panier est vide</p>
+                            <button class="btn btn-outline-success mt-2">Continuer vos achats</button>
+                        </div>
+                    `;
+                    cartSubtotal.textContent = '0 FCFA';
+                    cartTotal.textContent = '0 FCFA';
+                }
+            }
+            
+            // Formater le prix avec séparateur de milliers
+            function formatPrice(price) {
+                return price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            }
+            
+            // Ajouter les événements aux éléments du panier
+            function addCartItemEvents() {
+                // Boutons plus/moins
+                document.querySelectorAll('.cart-item .quantity-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity--;
+                            updateCart();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.cart-item .quantity-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        cart[index].quantity++;
+                        updateCart();
+                    });
+                });
+                
+                // Boutons supprimer
+                document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.closest('.cart-item').dataset.index;
+                        cart.splice(index, 1);
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Passer la commande
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length > 0) {
+                    alert('Commande passée avec succès! Total: ' + cartTotal.textContent);
+                    cart = [];
+                    updateCart();
+                    cartSidebar.classList.remove('active');
+                } else {
+                    alert('Votre panier est vide!');
+                }
+            });
+            
+            // Gestion des quantités sur les produits
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.nextElementSibling;
+                    if (parseInt(input.value) > 1) {
+                        input.value = parseInt(input.value) - 1;
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    input.value = parseInt(input.value) + 1;
+                });
+            });
+            
+            // Initialiser le panier
+            updateCart();
+        });
+    </script>
+</body>
+</html>
