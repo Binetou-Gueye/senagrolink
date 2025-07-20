@@ -6,13 +6,13 @@ class Produit {
         $this->pdo = $pdo;
     }
 
-    public function creerProduit($idBoutique, $nom, $description, $prixUnitaire, $quantite) {
+    public function creerProduit($idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie) {
         $stmt = $this->pdo->prepare("
             INSERT INTO produit 
-            (id_boutique, nom, description, prix_unitaire, quantite_stock)
-            VALUES (?, ?, ?, ?, ?)
+            (id_boutique, nom, description, prix_unitaire, quantite_stock, certification, unite_vente, categorie)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
-        return $stmt->execute([$idBoutique, $nom, $description, $prixUnitaire, $quantite]);
+        return $stmt->execute([$idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie]);
     }
 
     public function getProduitsByBoutique($idBoutique) {

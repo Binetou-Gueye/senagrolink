@@ -360,4 +360,5 @@ footer .social-side a:hover svg{
 
 .top-bar{
     position: fixed;
+    /* display: none; */
 }

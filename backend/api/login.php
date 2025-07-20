@@ -9,6 +9,7 @@ require_once __DIR__.'/../models/Utilisateur.php';
 require_once __DIR__.'/../models/Agriculteur.php';
 require_once __DIR__.'/../models/Acheteur.php';
 require_once __DIR__.'/../models/Administrateur.php';
+require_once __DIR__.'/../models/Boutique.php';
 
 // Connexion DB
 $pdo = new PDO("mysql:host=localhost;dbname=senagrolink", "root", "");
@@ -38,6 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // 2. Récupération du type d'utilisateur
         $userType = getUserType($pdo, $user['id_utilisateur']);
+
+        // 2. Récupération de la boutique de l'agriculteur
+
+        if ($userType && $userType == 'agriculteur') {
+            $market = new Boutique($pdo);
+            $bourique = $market->getBoutiqueByAgriculteur($user['id_utilisateur']);   
+        }
         
         // 3. Génération du token (simplifié)
         $token = bin2hex(random_bytes(32));
@@ -54,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'email' => $user['email'],
                 'localisation' => $user['localisation'],
                 'telephone' => $user['telephone'],
+                'boutique' => $bourique,
                 'type' => $userType
             ]
         ]);

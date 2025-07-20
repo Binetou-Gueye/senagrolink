@@ -26,7 +26,7 @@
         
         .product-form {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 70px auto;
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -48,30 +48,46 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul class="nav-bar">
-            <li class="logo"><a href="#">
-                <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;">
-            </a></li>
-            <input type="checkbox" id="check">
-            <span class="menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="boutique.html">Boutiques</a></li>
-                <li><a href="agriculteur.html">Mon Espace</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
-    </nav>
-    <!-- Header -->
-    <header class="product-header text-center" style="margin-top: 50px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <h1><i class="fas fa-plus-circle me-2"></i>Ajouter un nouveau produit</h1>
-            <p class="lead">Complétez les informations sur votre production</p>
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="../media/images/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="index.html">Acceuil</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="produits.html">Produits</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="galerie.html">Galerie</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="marche.html">Marché</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="contact.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" style="background-color: #2e7d32; color: white;" href="#" data-bs-toggle="modal" data-bs-target="#deconnexionModal">Connexion</a>
+                    </li>
+                </ul>
+                
+             </div>
         </div>
-    </header>
-
+        
+    </nav>
     <div class="container">
         <div class="product-form">
             <form id="addProductForm">
@@ -154,7 +170,8 @@
         </div>
     </div>
 
-    <script>
+    <script src="ajout_produit.js"></script>
+    <!-- <script>
         document.getElementById('addProductForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -175,9 +192,9 @@
             
             // Redirection vers la liste des produits après enregistrement
             alert('Produit enregistré avec succès!');
-            window.location.href = 'agriculteur.html#products';
+            // window.location.href = 'agriculteur.html#products';
         });
-    </script>
+    </script> -->
 
     <!-- Footer (identique à agriculteur.html) -->
         <footer class="mt-5 p-5">                                    

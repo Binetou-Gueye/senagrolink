@@ -42,10 +42,10 @@ document.getElementById('products-tab').addEventListener('click', async () => {
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="fw-bold text-success">${produit.prix_unitaire} FCFA/kg</span>
                     <div>
-                        <button class="btn btn-sm btn-outline-primary me-1">
+                        <button class="btn btn-sm btn-outline-primary me-1" data-id="${produit.id}">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="btn btn-sm btn-outline-danger">
+                        <button class="btn btn-sm btn-outline-danger" data-id="${produit.id}">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -59,3 +59,27 @@ document.getElementById('products-tab').addEventListener('click', async () => {
         alert(error.message);
     }
 });
+// Ajouter les écouteurs d'événements pour les boutons d'édition
+document.querySelectorAll('.edit-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        console.log("ok")
+        const productId = e.currentTarget.getAttribute('data-id');
+        const produit = produits.find(p => p.id == productId);
+        
+        if (produit) {
+            // Stocker le produit dans localStorage
+            localStorage.setItem('produitToEdit', JSON.stringify(produit));
+            
+            // Rediriger vers ajout.html
+            window.location.href = 'ajout.html';
+        }
+    });
+});
+// function gotProduit(produit) {
+//     if (produit) {
+//         localStorage.setItem('produit',produit)
+//     }
+//     window.location.href = 'ajout_produit.html';
+// }
+
+// document.getElementById('products-tab').addEventListener('click', async () => {
