@@ -23,5 +23,13 @@ class Acheteur {
         $stmt->execute([$userId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getTypeAcheteur($userI) {
+        $stmt = $this->pdo->prepare("
+            SELECT type_acheteur FROM acheteur
+            WHERE id_utilisateur = ?
+        ");
+        return $stmt->execute([$userId]);
+    }
 }
 ?>

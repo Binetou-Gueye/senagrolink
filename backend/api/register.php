@@ -7,6 +7,7 @@ header("Content-Type: application/json");
 
 require_once __DIR__.'/../models/Utilisateur.php';
 require_once __DIR__.'/../models/Agriculteur.php';
+require_once __DIR__.'/../models/Acheteur.php';
 require_once __DIR__.'/../models/Boutique.php';
 
 // Connexion DB (à mettre dans un fichier séparé si nécessaire)
@@ -45,6 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $userId, // id_agriculteur
                 'user.png', // Avatar par défaut
                 $data['localisation'] // Utilise la localisation comme emplacement initial
+            );
+        }
+        if ($data['type'] === 'acheteur') {
+            $acheteur = new Acheteur($pdo);
+            $acheteur->creerAcheteur(
+                $userId,
+                $data['type_acheteur']
             );
         }
         

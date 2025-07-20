@@ -1,63 +1,3 @@
-// Gestion des formulaires d'inscription
-//     const farmerForm = document.getElementById('farmerForm');
-//     const buyerForm = document.getElementById('buyerForm');
-//     const loginForm = document.getElementById('loginForm');
-//     const successMsg = document.getElementById('successMsg');
-//     const errorMsg = document.getElementById('errorMsg');
-//     const receptionMsg = document.getElementById('receptionMsg');
-
-
-// document.getElementById('inscriptionFormAgriculteur').addEventListener('submit', async function(e) {
-//     e.preventDefault();
-    
-//     const formData = {
-//         type: 'agriculteur',
-//         nom: document.getElementById('nom').value,
-//         email: document.getElementById('email').value,
-//         mot_de_passe: document.getElementById('mot_de_passe').value,
-//         localisation: document.getElementById('localisation').value,
-//         telephone: document.getElementById('telephone').value,
-//         type_production: document.getElementById('type_production').value
-//     };
-
-//     console.log(formData)
-//     try {
-//     const response = await fetch('http://localhost/agrolink/backend/api/register.php', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(formData)
-//         });
-
-//         const result = await response.json();
-        
-//         if (result.success == true) {
-            
-//             // Redirection après 2 secondes
-//             successMsg.textContent = "Inscription réussie en tant qu'acheteur!";
-//             successMsg.classList.remove('d-none');
-//             receptionMsg.classList.remove('d-none');
-//             setTimeout(() => {
-//                 window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
-//             }, 2000);
-//         } else {
-//             messageDiv.classList.add('error');
-//             messageDiv.textContent = result.error || 'Erreur lors de l\'inscription';
-//         }
-//     } catch (error) {
-//         // const messageDiv = document.getElementById('message');
-//         // messageDiv.className = 'message error';
-//         // messageDiv.textContent = 'Erreur de connexion au serveur';
-//         console.log("erreur")
-//     }
-// });
-
-// // Validation du téléphone
-// document.getElementById('telephone').addEventListener('input', function(e) {
-//     this.value = this.value.replace(/[^0-9+]/g, '');
-// });
-
 document.addEventListener('DOMContentLoaded', function() {
             // Gestion des formulaires d'inscription
     const farmerForm = document.getElementById('inscriptionFormAgriculteur');
@@ -119,6 +59,55 @@ document.addEventListener('DOMContentLoaded', function() {
         // const messageDiv = document.getElementById('message');
         // messageDiv.className = 'message error';
         // messageDiv.textContent = 'Erreur de connexion au serveur';
+        console.log("erreur")
+    }   
+    });
+
+    // Inscription Acheteur 
+    buyerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+            
+        const newBuyer = {
+            type: 'acheteur',
+            nom: document.getElementById('buyerName').value,
+            email: document.getElementById('buyerEmail').value,
+            mot_de_passe: document.getElementById('mot_de_passe').value,
+            localisation: document.getElementById('buyerLocation').value,
+            telephone: document.getElementById('buyerPhone').value,
+            type_acheteur: document.getElementById('buyerType').value
+        };   
+        console.log(newBuyer)     
+        try {
+
+            const response = await fetch('http://localhost/agrolink/backend/api/register.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newBuyer)
+            });
+
+        const result = await response.json();
+            
+        if (result.success == true) {
+            localStorage.setItem('currentUser', JSON.stringify(newBuyer));            
+            
+            // Afficher message de succès
+            successMsg.textContent = "Inscription réussie en tant qu'acheteur!";
+            successMsg.classList.remove('d-none');
+            receptionMsg.classList.remove('d-none');
+            
+            // Redirection après 3 secondes
+            setTimeout(() => {
+                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+            }, 3000);
+        } else {
+            errorMsg.textContent = "Erreur lors de l\'inscription";
+            errorMsg.classList.remove('d-none');
+            setTimeout(() => errorMsg.classList.add('d-none'), 3000);
+            return;
+        }
+    } catch (error) {
         console.log("erreur")
     }   
     });
