@@ -10,22 +10,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     
     try {
-        // Vérifier que l'utilisateur a une boutique
-        $boutiqueModel = new Boutique($pdo);
-        $boutique = $boutiqueModel->getBoutiqueByAgriculteur($data['id_agriculteur']);
+        // // Vérifier que l'utilisateur a une boutique
+        // $boutiqueModel = new Boutique($pdo);
+        // $boutique = $boutiqueModel->getBoutiqueByAgriculteur($data['id_agriculteur']);
         
-        if (!$boutique) {
+        if (!$data['id_boutique']) {
             throw new Exception("Aucune boutique trouvée pour cet agriculteur", 404);
         }
         
         // Créer le produit
         $produit = new Produit($pdo);
         $success = $produit->creerProduit(
-            $boutique['id_boutique'],
+            $data['id_boutique'],
             $data['nom'],
             $data['description'],
             $data['prix_unitaire'],
-            $data['quantite_stock']
+            $data['quantite_stock'],
+            $data["certification"],
+            $data["categorie"],
+            $data["unite_vente"],
         );      
         
         echo json_encode(['success' => $success]);
