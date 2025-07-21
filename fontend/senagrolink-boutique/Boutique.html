@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,14 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- font awsome -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <!-- cnd icon -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="marche.css">
-   <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- cnd icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="marche.css">
+    <link rel="stylesheet" href="styles.css">
+
     <style>
         :root {
             --primary-color: #2e7d32;
@@ -33,58 +34,74 @@
 
         /* ajout dernier */
         /* Dans votre fichier CSS */
-.commande-card {
-    transition: all 0.3s ease;
-    border-left: 4px solid #2e7d32;
-}
+        .commande-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #2e7d32;
+        }
 
-.commande-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
-}
+        .commande-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
+        }
 
-.status-badge {
-    font-size: 0.8rem;
-    padding: 0.35em 0.65em;
-}
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 0.35em 0.65em;
+        }
 
-.produit-item {
-    border: none !important;
-    padding: 0.75rem 0;
-}
+        .produit-item {
+            border: none !important;
+            padding: 0.75rem 0;
+        }
 
-.produit-item:not(:last-child) {
-    border-bottom: 1px dashed #eee !important;
-}
-/*fin ajout dernier*/
-        
+        .produit-item:not(:last-child) {
+            border-bottom: 1px dashed #eee !important;
+        }
+
+        /*fin ajout dernier*/
+
         /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
-        
+
         .animate-float {
             animation: float 4s ease-in-out infinite;
         }
-        
+
         .animate-fade {
             animation: fadeIn 0.6s ease-out forwards;
         }
-        
+
         /* Global Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-color);
             color: var(--text-color);
         }
-        
+
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -92,7 +109,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -103,53 +120,53 @@
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
             background-size: cover;
         }
-        
+
         .hero-title {
             font-weight: 800;
             font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
+
         .hero-subtitle {
             font-weight: 300;
             font-size: 1.5rem;
             opacity: 0.9;
         }
-        
+
         /* Shop Cards */
         .shop-card {
             background: var(--white);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
             position: relative;
             margin-bottom: 30px;
         }
-        
+
         .shop-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
-        
+
         .shop-header {
             position: relative;
             height: 200px;
             overflow: hidden;
         }
-        
+
         .shop-header img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s ease;
         }
-        
+
         .shop-card:hover .shop-header img {
             transform: scale(1.1);
         }
-        
+
         .shop-badge {
             position: absolute;
             top: 15px;
@@ -161,33 +178,33 @@
             font-size: 0.8rem;
             font-weight: 600;
             z-index: 2;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .premium-badge {
             background: linear-gradient(45deg, #ffc107, #ff9800);
         }
-        
+
         .new-badge {
             background: linear-gradient(45deg, #2196f3, #3f51b5);
         }
-        
+
         .organic-badge {
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
         }
-        
+
         .shop-body {
             padding: 1.8rem;
             position: relative;
         }
-        
+
         .shop-body h3 {
             color: var(--dark-color);
             font-weight: 700;
             margin-bottom: 0.8rem;
             font-size: 1.4rem;
         }
-        
+
         .location {
             color: #666;
             font-size: 0.95rem;
@@ -196,24 +213,24 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .shop-info {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
         }
-        
+
         .shop-info span {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-        
+
         .rating {
             color: #ffc107;
         }
-        
+
         .btn-shop {
             background-color: var(--primary-color);
             color: white;
@@ -228,20 +245,20 @@
             justify-content: center;
             gap: 8px;
         }
-        
+
         .btn-shop:hover {
             background-color: var(--dark-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
         }
-        
+
         /* Featured Section */
         .featured-section {
             padding: 5rem 0;
             background-color: var(--white);
             position: relative;
         }
-        
+
         .section-title {
             color: var(--dark-color);
             font-weight: 800;
@@ -250,7 +267,7 @@
             margin-bottom: 2.5rem;
             text-align: center;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -262,23 +279,23 @@
             background-color: var(--accent-color);
             border-radius: 2px;
         }
-        
+
         /* Search & Filters */
         .search-container {
             background-color: var(--white);
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
             padding: 1.8rem;
             margin: -3rem auto 3rem;
             max-width: 1200px;
             position: relative;
             z-index: 10;
         }
-        
+
         .search-box {
             position: relative;
         }
-        
+
         .search-box input {
             padding-left: 45px;
             border-radius: 50px;
@@ -286,7 +303,7 @@
             height: 50px;
             transition: all 0.3s;
         }
-        
+
         .search-box i {
             position: absolute;
             left: 20px;
@@ -295,12 +312,12 @@
             color: var(--secondary-color);
             font-size: 1.1rem;
         }
-        
+
         .search-box input:focus {
             border-color: var(--accent-color);
             box-shadow: 0 0 0 0.25rem rgba(139, 195, 74, 0.25);
         }
-        
+
         .filter-btn {
             background-color: var(--white);
             color: var(--dark-color);
@@ -311,24 +328,25 @@
             margin-bottom: 10px;
             transition: all 0.3s;
         }
-        
-        .filter-btn:hover, .filter-btn.active {
+
+        .filter-btn:hover,
+        .filter-btn.active {
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
         }
-        
+
         /* Pagination */
         .pagination {
             justify-content: center;
             margin-top: 3rem;
         }
-        
+
         .page-item.active .page-link {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        
+
         .page-link {
             color: var(--primary-color);
             margin: 0 5px;
@@ -340,12 +358,12 @@
             justify-content: center;
             border: 1px solid #e0e0e0;
         }
-        
+
         .page-link:hover {
             color: var(--dark-color);
             background-color: var(--light-color);
         }
-        
+
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
@@ -353,12 +371,12 @@
             padding: 4rem 0;
             text-align: center;
         }
-        
+
         .cta-title {
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-        
+
         .btn-cta {
             background-color: white;
             color: var(--primary-color);
@@ -368,44 +386,45 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             color: var(--dark-color);
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.2rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .search-container {
                 margin-top: -2rem;
                 padding: 1.2rem;
             }
-            
+
             .shop-header {
                 height: 160px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Votre Navbar existante -->
     <nav>
         <ul class="nav-bar">
             <li class="logo"><a href="#">
-                <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;">
-            </a></li>
-            <input type="checkbox"  id="check">
+                    <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;">
+                </a></li>
+            <input type="checkbox" id="check">
             <span class="menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="produits.html">Produits</a></li>
@@ -423,7 +442,8 @@
     <section class="hero-section">
         <div class="container text-center animate-fade">
             <h1 class="hero-title animate-fade" style="animation-delay: 0.2s">Nos Boutiques Agricoles</h1>
-            <p class="hero-subtitle animate-fade" style="animation-delay: 0.4s">Découvrez les meilleurs producteurs locaux de votre région</p>
+            <p class="hero-subtitle animate-fade" style="animation-delay: 0.4s">Découvrez les meilleurs producteurs
+                locaux de votre région</p>
             <div class="mt-4 animate-fade" style="animation-delay: 0.6s">
                 <div class="animate-float" style="display: inline-block;">
                     <i class="bi bi-shop-window" style="font-size: 3rem; opacity: 0.8;"></i>
@@ -448,24 +468,24 @@
                     <option>Mieux notées</option>
                     <option>Nouveautés</option>
                 </select>
-                 <select id="boutique-selection" class="form-select mb-3">
-            <option value="Mbay de Niayes">Mbay de Niayes</option>
-            <option value="Khady legumes">Khady legumes</option>
-            <option value="Abdou Legums">Abdou Legums</option>
-            <option value="Jardin Potager de Kaolack">Jardin Potager de Kaolack</option>
-            <option value="Jardin agricole de Fatick">Jardin agricole de Fatick</option>
-            <option value="Boutique 6">Boutique 6</option>
-            <option value="Boutique 7">Boutique 7</option>
-            <option value="Boutique 8">Boutique 8</option>
-            <option value="Boutique 9">Boutique 9</option>
-            <option value="Boutique 10">Boutique 10</option>
-            <option value="Boutique 11">Boutique 11</option>
-            <option value="Boutique 12">Boutique 12</option>
-            <option value="Boutique 13">Boutique 13</option>
-            <option value="Boutique 14">Boutique 14</option>
-            <option value="Boutique 15">Boutique 15</option>
-            <!-- Ajoutez vos autres boutiques -->
-        </select>
+                <select id="boutique-selection" class="form-select mb-3">
+                    <option value="Mbay de Niayes">Mbay de Niayes</option>
+                    <option value="Khady legumes">Khady legumes</option>
+                    <option value="Abdou Legums">Abdou Legums</option>
+                    <option value="Jardin Potager de Kaolack">Jardin Potager de Kaolack</option>
+                    <option value="Jardin agricole de Fatick">Jardin agricole de Fatick</option>
+                    <option value="Boutique 6">Boutique 6</option>
+                    <option value="Boutique 7">Boutique 7</option>
+                    <option value="Boutique 8">Boutique 8</option>
+                    <option value="Boutique 9">Boutique 9</option>
+                    <option value="Boutique 10">Boutique 10</option>
+                    <option value="Boutique 11">Boutique 11</option>
+                    <option value="Boutique 12">Boutique 12</option>
+                    <option value="Boutique 13">Boutique 13</option>
+                    <option value="Boutique 14">Boutique 14</option>
+                    <option value="Boutique 15">Boutique 15</option>
+                    <!-- Ajoutez vos autres boutiques -->
+                </select>
             </div>
         </div>
         <div class="mt-3 d-flex flex-wrap">
@@ -473,7 +493,7 @@
             <button class="filter-btn">Fruits</button>
             <button class="filter-btn">Légumes</button>
             <button class="filter-btn">Céréales</button>
-     
+
         </div>
     </div>
 
@@ -481,46 +501,50 @@
     <section class="featured-section">
         <div class="container">
             <h2 class="section-title animate-fade">Découvrez nos 15 meilleures boutiques</h2>
-            
+
             <div class="row">
                 <!-- Boutique 1 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
                     <div class="shop-card">
                         <div class="shop-header">
                             <img src="pictures/boutiqueniayes.jpg" alt="">
-                    
+
                         </div>
                         <div class="shop-body">
                             <h3>Mbay de Niayes</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Dakar, Niayes</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i> 4.7</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-half"></i> 4.7</span>
                                 <span><i class="bi bi-box"></i> 5 produits</span>
                             </div>
                             <a href="Visite1.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 2 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
                     <div class="shop-card">
                         <div class="shop-header">
                             <img src="pictures/legumkhady.jpg" alt="Khady legumes">
-                            
+
                         </div>
                         <div class="shop-body">
                             <h3>Khady legumes</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Dakar</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> 5.0</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i> 5.0</span>
                                 <span><i class="bi bi-box"></i> 5 produits</span>
                             </div>
-                         <a href="Visite2.html" class="btn btn-shop">Visiter la boutique</a> 
+                            <a href="Visite2.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 3 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
                     <div class="shop-card">
@@ -532,14 +556,16 @@
                             <h3>Abdou Legums</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Saint-Louis</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> 4.2</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star"></i> 4.2</span>
                                 <span><i class="bi bi-box"></i> 5 produits</span>
                             </div>
                             <a href="Visite3.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 4 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
                     <div class="shop-card">
@@ -550,14 +576,16 @@
                             <h3>Jardin Potager de Kaolack</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Kaolack</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> 4.1</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star"></i> 4.1</span>
                                 <span><i class="bi bi-box"></i> 5 produits</span>
                             </div>
                             <a href="Visite4.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 5 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
                     <div class="shop-card">
@@ -569,598 +597,641 @@
                             <h3>Jardin agricole de Fatick</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Fatick</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i> 3.8</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
+                                        class="bi bi-star"></i> 3.8</span>
                                 <span><i class="bi bi-box"></i> 5 produits</span>
                             </div>
-                            
-                                <a href="Visite5.html" class="btn btn-shop">Visiter la boutique</a>
+
+                            <a href="Visite5.html" class="btn btn-shop">Visiter la boutique</a>
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 6 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Maraîcher de Ziguinchor">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Maraîcher de Ziguinchor">
                         </div>
                         <div class="shop-body">
                             <h3>Maraîcher de Ziguinchor</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Ziguinchor</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> 4.3</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star"></i> 4.3</span>
                                 <span><i class="bi bi-box"></i> 31 produits</span>
                             </div>
-                            
-                        <a href="Visite6.html" class="btn btn-shop">Visiter la boutique</a>                            </a>
+
+                            <a href="Visite6.html" class="btn btn-shop">Visiter la boutique</a> </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 7 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Riziculture de la Vallée">
+                            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Riziculture de la Vallée">
                             <div class="shop-badge premium-badge">Premium</div>
                         </div>
                         <div class="shop-body">
                             <h3>Riziculture de la Vallée</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Kolda</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i> 4.6</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-half"></i> 4.6</span>
                                 <span><i class="bi bi-box"></i> 25 produits</span>
                             </div>
                             <a href="Visite7.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 8 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Verger de Tamba">
+                            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Verger de Tamba">
                             <div class="shop-badge new-badge">Nouveau</div>
                         </div>
                         <div class="shop-body">
                             <h3>Verger de Tamba</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Tambacounda</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> 4.0</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star"></i> 4.0</span>
                                 <span><i class="bi bi-box"></i> 22 produits</span>
                             </div>
                             <a href="Visite8.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 9 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ferme Laitière de Louga">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Ferme Laitière de Louga">
                             <div class="shop-badge">Spécialité</div>
                         </div>
                         <div class="shop-body">
                             <h3>Ferme Laitière de Louga</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Louga</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i> 3.7</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
+                                        class="bi bi-star"></i> 3.7</span>
                                 <span><i class="bi bi-box"></i> 15 produits</span>
                             </div>
                             <a href="Visite9.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 10 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Miel de Kédougou">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Miel de Kédougou">
                             <div class="shop-badge organic-badge">Bio</div>
                         </div>
                         <div class="shop-body">
                             <h3>Miel de Kédougou</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Kédougou</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> 5.0</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i> 5.0</span>
                                 <span><i class="bi bi-box"></i> 8 produits</span>
                             </div>
                             <a href="Visite10.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 11 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jardin Exotique de Sédhiou">
+                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Jardin Exotique de Sédhiou">
                             <div class="shop-badge">Spécialité</div>
                         </div>
                         <div class="shop-body">
                             <h3>Jardin Exotique de Sédhiou</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Sédhiou</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i> 3.2</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                                    3.2</span>
                                 <span><i class="bi bi-box"></i> 12 produits</span>
                             </div>
                             <a href="Visite11.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 12 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ferme Maraîchère de Kaffrine">
+                            <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Ferme Maraîchère de Kaffrine">
                             <div class="shop-badge organic-badge">Bio</div>
                         </div>
                         <div class="shop-body">
                             <h3>Ferme Maraîchère de Kaffrine</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Kaffrine</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> 4.1</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star"></i> 4.1</span>
                                 <span><i class="bi bi-box"></i> 27 produits</span>
                             </div>
                             <a href="Visite12.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 13 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ferme Bio de Diourbel">
+                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Ferme Bio de Diourbel">
                             <div class="shop-badge organic-badge">Bio</div>
                         </div>
                         <div class="shop-body">
                             <h3>Ferme Bio de Diourbel</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Diourbel</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i> 3.8</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
+                                        class="bi bi-star"></i> 3.8</span>
                                 <span><i class="bi bi-box"></i> 19 produits</span>
                             </div>
-                           <a href="Visite13.html" class="btn btn-shop">Visiter la boutique</a>
+                            <a href="Visite13.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 14 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Verger de Matam">
+                            <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Verger de Matam">
                             <div class="shop-badge new-badge">Nouveau</div>
                         </div>
                         <div class="shop-body">
                             <h3>Verger de Matam</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Matam</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i> 3.0</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                                    3.0</span>
                                 <span><i class="bi bi-box"></i> 14 produits</span>
                             </div>
                             <a href="Visite14.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Boutique 15 -->
                 <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
                     <div class="shop-card">
                         <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ferme Mixte de Kolda">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Ferme Mixte de Kolda">
                             <div class="shop-badge premium-badge">Premium</div>
                         </div>
                         <div class="shop-body">
                             <h3>Ferme Mixte de Kolda</h3>
                             <p class="location"><i class="bi bi-geo-alt"></i> Kolda</p>
                             <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i> 3.0</span>
-                                    <span><i class="bi bi-box"></i> 14 produits</span>
+                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                                    3.0</span>
+                                <span><i class="bi bi-box"></i> 14 produits</span>
                             </div>
                             <a href="Visite15.html" class="btn btn-shop">Visiter la boutique</a>
                         </div>
                     </div>
                 </div>
             </div>
-                                            
-         </div>
+
+        </div>
     </section>
-                                
-<!-- Section Appel à l'action -->
-<section class="cta-section">
-    <div class="container">
-         <h2 class="cta-title">Vous êtes agriculteur ?</h2>
-             <p>Rejoignez la plateforme SenAgroLink et ouvrez votre boutique en quelques clics !</p>
-                 <a href="inscription.html" class="btn btn-cta">Devenir vendeur</a>
-    </div>
-</section>
-                                
- <!-- Footer -->
-<footer class="mt-5 p-5">                                    
-  <div class="container">
-      <div class="row">
-          <div class="col-md-6 col-lg-3 p-2">
-              <div class="left px-2">
-                  <p>
-                      Merci de votre visite chez SenAgroLink. Votre allie pour une meilleure proximite aux produits locaux.
-                  </p>
-                  <div class="social-side d-flex gap-4 ">
-                      <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-                            </svg>
-                      </a>
-                      <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                            </svg>
-                      </a>
-                      <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
-                              <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
-                            </svg>
-                      </a>
-                      <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       data-aos="fade-up" 
-                       data-aos-delay="500" 
-                       data-aos-duration="2500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-                    </svg>
 
-                   </a>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-3 p-2">
-              <div class="horaire p-2">
-                  <ul>
-                      <h4>Ressources </h4>
-                      <li class="text-white">
-                          <strong class="me-2">Guides agricoles</strong >
-                      </li>
-                      <li class="text-white">
-                          <strong class="me-2">Prix du marche</strong > 
-                      </li>
-                      <li class="text-white">
-                          <strong class="me-2">FAQ</strong > 
-                      </li>
-                      <li class="text-white">
-                          <strong class="me-2">Blog</strong > 
-                      </li>
-                     
-                  </ul>
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-3 p-2">
-              <div class="middle px-2 text-white">
-                  <ul class="lh-lg">
-                          <li class="">
-                              <a href="index.html">Accueil</a>
-                          </li>
-                          <li class="">
-                              <a href="produits.html">Produits</a>
-                          </li>
-                          <li class="">
-                              <a href="marche.html">Marche</a>
-                          </li>
-                          <li class="">
-                              <a href="galerie.html">Galerie</a>
-                          </li>
-                          <li class="">
-                              <a href="inscription.html">Inscription</a>
-                          </li>
-                          <li class="">
-                              <a href="contact.html">Contact</a>
-                          </li>
-                     
-
-                  </ul>
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-3 p-2">
-              <div class="right px-2">
-                  <form action="">
-                      <div class="d-flex flex-column justify-content-center align-item-center gap-3">
-                          <label for="newletter" class="form-label">S'inscrire a notre Newletter</label>
-                          <input type="text" name="newletter" id="newletter" class="form-control">
-                          <button type="submit">S'inscrire</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-      <div class="row mt-5 text-center">
-          <div class="col-md-12">
-                  Copyright 2024 by@SenAgroLink le marché agricole au bout des doigts 
-
-          </div>
-          
-      </div>
-  </div>
-</footer>
-                                
-                                    <!-- Animation JS -->
-                                    <script>
-                                    // Animation fade-in au scroll
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        function revealOnScroll() {
-                                            const elements = document.querySelectorAll('.animate-fade');
-                                            elements.forEach((el, i) => {
-                                                const windowHeight = window.innerHeight;
-                                                const elementTop = el.getBoundingClientRect().top;
-                                                if (elementTop < windowHeight - 100) {
-                                                    el.style.opacity = 1;
-                                                    el.style.transform = 'translateY(0)';
-                                                }
-                                            });
-                                        }
-                                        window.addEventListener('scroll', revealOnScroll);
-                                        revealOnScroll();
-                                
-                                        // Animation filtre actif
-                                        const filterBtns = document.querySelectorAll('.filter-btn');
-                                        filterBtns.forEach(btn => {
-                                            btn.addEventListener('click', function() {
-                                                filterBtns.forEach(b => b.classList.remove('active'));
-                                                this.classList.add('active');
-                                                // Ici, vous pouvez ajouter le filtrage JS si besoin
-                                            });
-                                        });
-                                
-                                        // Animation recherche focus
-                                        const searchInput = document.querySelector('.search-box input');
-                                        if (searchInput) {
-                                            searchInput.addEventListener('focus', function() {
-                                                this.parentElement.classList.add('focused');
-                                            });
-                                            searchInput.addEventListener('blur', function() {
-                                                this.parentElement.classList.remove('focused');
-                                            });
-                                        }
-                                    });
-// Fonction utilitaire pour calculer le total du panier
-function calculerTotal(panierItems) {
-    if (!Array.isArray(panierItems)) return 0;
-    return panierItems.reduce((total, item) => {
-        // Supposons que chaque item a une propriété 'prix' et 'quantite'
-        return total + (parseFloat(item.prix || 0) * (parseInt(item.quantite || 1)));
-    }, 0);
-}
-
-// Fonction de validation de commande
-function validerCommande() {
-    const panierItems = JSON.parse(localStorage.getItem('panier')) || [];
-    const buyerData = JSON.parse(localStorage.getItem('buyerData'));
-
-    if (!buyerData) {
-        alert("Veuillez vous connecter avant de passer commande");
-        return;
-    }
-
-    const total = calculerTotal(panierItems);
-
-    const nouvelleCommande = {
-        id: 'CMD-' + Date.now(),
-        date: new Date().toLocaleString(),
-        boutique: " ", // À dynamiser selon la boutique
-        produits: panierItems,
-        statut: "En préparation",
-        total: total + " FCFA",
-        adresseLivraison: buyerData.location
-    };
-
-    // Enregistrement dans l'historique
-    let historique = JSON.parse(localStorage.getItem('historiqueCommandes')) || [];
-    historique.push(nouvelleCommande);
-    localStorage.setItem('historiqueCommandes', JSON.stringify(historique));
-
-    // Sauvegarder la commande dans buyerOrders aussi (si besoin)
-    let existingOrders = JSON.parse(localStorage.getItem('buyerOrders')) || [];
-    existingOrders.push({
-        id: nouvelleCommande.id,
-        date: nouvelleCommande.date,
-        shopName: nouvelleCommande.boutique,
-        total: nouvelleCommande.total,
-        status: nouvelleCommande.statut,
-        items: panierItems
-    });
-    localStorage.setItem('buyerOrders', JSON.stringify(existingOrders));
-
-    // Vider le panier
-    localStorage.removeItem('panier');
-
-    // Redirection vers l'espace acheteur avec notification
-    window.location.href = 'acheteur.html?commande=success';
-
-    const selectedBoutique = document.getElementById('boutique-selection').value;
-// Utilisez selectedBoutique dans l'objet commande
-    nouvelleCommande.boutique = selectedBoutique;
-
-    // Afficher un message de confirmation
-    alert(`Commande ${nouvelleCommande.id} passée avec succès pour la boutique ${selectedBoutique}. Total: ${nouvelleCommande.total}`);
-}
-</script>
-
-<!-- Avant la fermeture de la balise body -->
-<!-- Modal de Paiement (unique, sans doublon) -->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title">Finaliser votre commande</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-4">
-          <h6>Récapitulatif de commande</h6>
-          <div id="orderSummary"></div>
-          <hr>
-          <h5 class="text-end">Total: <span id="orderTotal"></span> FCFA</h5>
+    <!-- Section Appel à l'action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Vous êtes agriculteur ?</h2>
+            <p>Rejoignez la plateforme SenAgroLink et ouvrez votre boutique en quelques clics !</p>
+            <a href="inscription.html" class="btn btn-cta">Devenir vendeur</a>
         </div>
-        <div class="mb-3">
-          <h6>Méthode de paiement</h6>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="paymentMethod" id="orangeMoney" checked>
-            <label class="form-check-label" for="orangeMoney">
-              <img src="pictures/OM.jpeg" alt="Orange Money" style="height: 30px" class="ms-2">
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="paymentMethod" id="wave">
-            <label class="form-check-label" for="wave">
-              <img src="pictures/Wave.png" alt="Wave" style="height: 30px" class="ms-2">
-            </label>
-          </div>
-        </div>
-        <div id="orangeMoneyDetails">
-          <div class="mb-3">
-            <label for="orangeNumber" class="form-label">Numéro Orange Money</label>
-            <input type="tel" class="form-control" id="orangeNumber" placeholder="xxxxxxxxx" pattern="77[0-9]{7}">
-          </div>
-          <div class="alert alert-info">
-            Vous recevrez une demande de confirmation sur votre mobile
-          </div>
-        </div>
-        <div id="waveDetails" style="display: none">
-          <div class="mb-3">
-            <label for="waveNumber" class="form-label">Numéro Wave</label>
-            <input type="tel" class="form-control" id="waveNumber" placeholder="xxxxxxxxx" pattern="70[0-9]{7}">
-          </div>
-          <div class="alert alert-info">
-            Ouvrez l'application Wave pour confirmer le paiement
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-success" id="confirmPayment">Confirmer le paiement</button>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<script>
-    // Gestion des méthodes de paiement
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-          document.getElementById('orangeMoneyDetails').style.display =
-            this.id === 'orangeMoney' ? 'block' : 'none';
-          document.getElementById('waveDetails').style.display =
-            this.id === 'wave' ? 'block' : 'none';
+    <!-- Footer -->
+    <footer class="mt-5 p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="left px-2">
+                        <p>
+                            Merci de votre visite chez SenAgroLink. Votre allie pour une meilleure proximite aux
+                            produits locaux.
+                        </p>
+                        <div class="social-side d-flex gap-4 ">
+                            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class=""
+                                data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                                </svg>
+                            </a>
+                            <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer"
+                                data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg>
+                            </a>
+                            <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up"
+                                data-aos-delay="500" data-aos-duration="2000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-tiktok" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous"
+                                target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500"
+                                data-aos-duration="2500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                                </svg>
+
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="horaire p-2">
+                        <ul>
+                            <h4>Ressources </h4>
+                            <li class="text-white">
+                                <strong class="me-2">Guides agricoles</strong>
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Prix du marche</strong>
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">FAQ</strong>
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Blog</strong>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="middle px-2 text-white">
+                        <ul class="lh-lg">
+                            <li class="">
+                                <a href="index.html">Accueil</a>
+                            </li>
+                            <li class="">
+                                <a href="produits.html">Produits</a>
+                            </li>
+                            <li class="">
+                                <a href="marche.html">Marche</a>
+                            </li>
+                            <li class="">
+                                <a href="galerie.html">Galerie</a>
+                            </li>
+                            <li class="">
+                                <a href="inscription.html">Inscription</a>
+                            </li>
+                            <li class="">
+                                <a href="contact.html">Contact</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="right px-2">
+                        <form action="">
+                            <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                                <label for="newletter" class="form-label">S'inscrire a notre Newletter</label>
+                                <input type="text" name="newletter" id="newletter" class="form-control">
+                                <button type="submit">S'inscrire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-12">
+                    Copyright 2024 by@SenAgroLink le marché agricole au bout des doigts
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation JS -->
+    <script>
+        // Animation fade-in au scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            function revealOnScroll() {
+                const elements = document.querySelectorAll('.animate-fade');
+                elements.forEach((el, i) => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) {
+                        el.style.opacity = 1;
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            // Animation filtre actif
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // Ici, vous pouvez ajouter le filtrage JS si besoin
+                });
+            });
+
+            // Animation recherche focus
+            const searchInput = document.querySelector('.search-box input');
+            if (searchInput) {
+                searchInput.addEventListener('focus', function () {
+                    this.parentElement.classList.add('focused');
+                });
+                searchInput.addEventListener('blur', function () {
+                    this.parentElement.classList.remove('focused');
+                });
+            }
         });
-      });
-
-      // Confirmation de paiement
-      document.getElementById('confirmPayment').addEventListener('click', function() {
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').id;
-        const phoneNumber = paymentMethod === 'orangeMoney'
-          ? document.getElementById('orangeNumber').value
-          : document.getElementById('waveNumber').value;
-
-        let phoneRegex;
-        if (paymentMethod === 'orangeMoney') {
-          phoneRegex = /^77\d{7}$/ || /^78\d{7}$/ || /^70\d{7}$/;// regex pour Orange Money
-        } else if (paymentMethod === 'wave') {
-          phoneRegex = /^70\d{7}$/ || /^77\d{7}$/ || /^78\d{7}$/; // regex pour Wave
-        } else if (paymentMethod === 'cash') {
-          phoneRegex = /.*/; // pour paiement en espèces, pas de validation
-        } else {
-          phoneRegex = /.*/; // fallback, accept anything
-        }
-        if (!phoneNumber.match(phoneRegex)) {
-          alert("Numéro de téléphone invalide");
-          return;
+        // Fonction utilitaire pour calculer le total du panier
+        function calculerTotal(panierItems) {
+            if (!Array.isArray(panierItems)) return 0;
+            return panierItems.reduce((total, item) => {
+                // Supposons que chaque item a une propriété 'prix' et 'quantite'
+                return total + (parseFloat(item.prix || 0) * (parseInt(item.quantite || 1)));
+            }, 0);
         }
 
-        // Enregistrer la commande
-        saveOrder(paymentMethod, phoneNumber);
-      });
-    });
+        // Fonction de validation de commande
+        function validerCommande() {
+            const panierItems = JSON.parse(localStorage.getItem('panier')) || [];
+            const buyerData = JSON.parse(localStorage.getItem('buyerData'));
 
-    // Fonction pour afficher le récapitulatif et ouvrir le modal de paiement
-    function validateOrder() {
-      // Utilisez 'panier' pour la cohérence avec le reste du code
-      const cartItems = JSON.parse(localStorage.getItem('panier')) || [];
-      const buyerData = JSON.parse(localStorage.getItem('buyerData'));
+            if (!buyerData) {
+                alert("Veuillez vous connecter avant de passer commande");
+                return;
+            }
 
-      if (!buyerData) {
-        alert("Veuillez vous connecter avant de passer commande");
-        return;
-      }
+            const total = calculerTotal(panierItems);
 
-      if (cartItems.length === 0) {
-        alert("Votre panier est vide");
-        return;
-      }
+            const nouvelleCommande = {
+                id: 'CMD-' + Date.now(),
+                date: new Date().toLocaleString(),
+                boutique: " ", // À dynamiser selon la boutique
+                produits: panierItems,
+                statut: "En préparation",
+                total: total + " FCFA",
+                adresseLivraison: buyerData.location
+            };
 
-      // Afficher le récapitulatif
-      const orderSummary = document.getElementById('orderSummary');
-      orderSummary.innerHTML = cartItems.map(item => `
+            // Enregistrement dans l'historique
+            let historique = JSON.parse(localStorage.getItem('historiqueCommandes')) || [];
+            historique.push(nouvelleCommande);
+            localStorage.setItem('historiqueCommandes', JSON.stringify(historique));
+
+            // Sauvegarder la commande dans buyerOrders aussi (si besoin)
+            let existingOrders = JSON.parse(localStorage.getItem('buyerOrders')) || [];
+            existingOrders.push({
+                id: nouvelleCommande.id,
+                date: nouvelleCommande.date,
+                shopName: nouvelleCommande.boutique,
+                total: nouvelleCommande.total,
+                status: nouvelleCommande.statut,
+                items: panierItems
+            });
+            localStorage.setItem('buyerOrders', JSON.stringify(existingOrders));
+
+            // Vider le panier
+            localStorage.removeItem('panier');
+
+            // Redirection vers l'espace acheteur avec notification
+            window.location.href = 'acheteur.html?commande=success';
+
+            const selectedBoutique = document.getElementById('boutique-selection').value;
+            // Utilisez selectedBoutique dans l'objet commande
+            nouvelleCommande.boutique = selectedBoutique;
+
+            // Afficher un message de confirmation
+            alert(`Commande ${nouvelleCommande.id} passée avec succès pour la boutique ${selectedBoutique}. Total: ${nouvelleCommande.total}`);
+        }
+    </script>
+
+    <!-- Avant la fermeture de la balise body -->
+    <!-- Modal de Paiement (unique, sans doublon) -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Finaliser votre commande</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <h6>Récapitulatif de commande</h6>
+                        <div id="orderSummary"></div>
+                        <hr>
+                        <h5 class="text-end">Total: <span id="orderTotal"></span> FCFA</h5>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Méthode de paiement</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="orangeMoney" checked>
+                            <label class="form-check-label" for="orangeMoney">
+                                <img src="pictures/OM.jpeg" alt="Orange Money" style="height: 30px" class="ms-2">
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="wave">
+                            <label class="form-check-label" for="wave">
+                                <img src="pictures/Wave.png" alt="Wave" style="height: 30px" class="ms-2">
+                            </label>
+                        </div>
+                    </div>
+                    <div id="orangeMoneyDetails">
+                        <div class="mb-3">
+                            <label for="orangeNumber" class="form-label">Numéro Orange Money</label>
+                            <input type="tel" class="form-control" id="orangeNumber" placeholder="xxxxxxxxx"
+                                pattern="77[0-9]{7}">
+                        </div>
+                        <div class="alert alert-info">
+                            Vous recevrez une demande de confirmation sur votre mobile
+                        </div>
+                    </div>
+                    <div id="waveDetails" style="display: none">
+                        <div class="mb-3">
+                            <label for="waveNumber" class="form-label">Numéro Wave</label>
+                            <input type="tel" class="form-control" id="waveNumber" placeholder="xxxxxxxxx"
+                                pattern="70[0-9]{7}">
+                        </div>
+                        <div class="alert alert-info">
+                            Ouvrez l'application Wave pour confirmer le paiement
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" id="confirmPayment">Confirmer le paiement</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gestion des méthodes de paiement
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    document.getElementById('orangeMoneyDetails').style.display =
+                        this.id === 'orangeMoney' ? 'block' : 'none';
+                    document.getElementById('waveDetails').style.display =
+                        this.id === 'wave' ? 'block' : 'none';
+                });
+            });
+
+            // Confirmation de paiement
+            document.getElementById('confirmPayment').addEventListener('click', function () {
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').id;
+                const phoneNumber = paymentMethod === 'orangeMoney'
+                    ? document.getElementById('orangeNumber').value
+                    : document.getElementById('waveNumber').value;
+
+                let phoneRegex;
+                if (paymentMethod === 'orangeMoney') {
+                    phoneRegex = /^77\d{7}$/ || /^78\d{7}$/ || /^70\d{7}$/;// regex pour Orange Money
+                } else if (paymentMethod === 'wave') {
+                    phoneRegex = /^70\d{7}$/ || /^77\d{7}$/ || /^78\d{7}$/; // regex pour Wave
+                } else if (paymentMethod === 'cash') {
+                    phoneRegex = /.*/; // pour paiement en espèces, pas de validation
+                } else {
+                    phoneRegex = /.*/; // fallback, accept anything
+                }
+                if (!phoneNumber.match(phoneRegex)) {
+                    alert("Numéro de téléphone invalide");
+                    return;
+                }
+
+                // Enregistrer la commande
+                saveOrder(paymentMethod, phoneNumber);
+            });
+        });
+
+        // Fonction pour afficher le récapitulatif et ouvrir le modal de paiement
+        function validateOrder() {
+            // Utilisez 'panier' pour la cohérence avec le reste du code
+            const cartItems = JSON.parse(localStorage.getItem('panier')) || [];
+            const buyerData = JSON.parse(localStorage.getItem('buyerData'));
+
+            if (!buyerData) {
+                alert("Veuillez vous connecter avant de passer commande");
+                return;
+            }
+
+            if (cartItems.length === 0) {
+                alert("Votre panier est vide");
+                return;
+            }
+
+            // Afficher le récapitulatif
+            const orderSummary = document.getElementById('orderSummary');
+            orderSummary.innerHTML = cartItems.map(item => `
         <div class="d-flex justify-content-between">
           <span>${item.nom || item.name} x${item.quantite || item.quantity}</span>
           <span>${(item.prix || item.price) * (item.quantite || item.quantity)} FCFA</span>
         </div>
       `).join('');
 
-      const total = cartItems.reduce((sum, item) => sum + ((item.prix || item.price) * (item.quantite || item.quantity)), 0);
-      document.getElementById('orderTotal').textContent = total;
+            const total = cartItems.reduce((sum, item) => sum + ((item.prix || item.price) * (item.quantite || item.quantity)), 0);
+            document.getElementById('orderTotal').textContent = total;
 
-      // Afficher le modal de paiement
-      const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
-      paymentModal.show();
-    }
+            // Afficher le modal de paiement
+            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            paymentModal.show();
+        }
 
-    function saveOrder(paymentMethod, phoneNumber) {
-      const cartItems = JSON.parse(localStorage.getItem('panier')) || [];
-      const buyerData = JSON.parse(localStorage.getItem('buyerData'));
-      // Récupérer le nom de la boutique sélectionnée si disponible
-      let boutiqueName = "Nom de la Boutique";
-      const boutiqueSelect = document.getElementById('boutique-selection');
-      if (boutiqueSelect) {
-        boutiqueName = boutiqueSelect.value;
-      }
+        function saveOrder(paymentMethod, phoneNumber) {
+            const cartItems = JSON.parse(localStorage.getItem('panier')) || [];
+            const buyerData = JSON.parse(localStorage.getItem('buyerData'));
+            // Récupérer le nom de la boutique sélectionnée si disponible
+            let boutiqueName = "Nom de la Boutique";
+            const boutiqueSelect = document.getElementById('boutique-selection');
+            if (boutiqueSelect) {
+                boutiqueName = boutiqueSelect.value;
+            }
 
-      const newOrder = {
-        id: 'CMD-' + Date.now(),
-        date: new Date().toLocaleString('fr-FR'),
-        boutique: boutiqueName,
-        items: cartItems,
-        status: "Paiement en attente",
-        total: cartItems.reduce((sum, item) => sum + ((item.prix || item.price) * (item.quantite || item.quantity)), 0),
-        payment: {
-          method: paymentMethod,
-          number: phoneNumber,
-          status: "pending"
-        },
-        deliveryAddress: buyerData.location
-      };
+            const newOrder = {
+                id: 'CMD-' + Date.now(),
+                date: new Date().toLocaleString('fr-FR'),
+                boutique: boutiqueName,
+                items: cartItems,
+                status: "Paiement en attente",
+                total: cartItems.reduce((sum, item) => sum + ((item.prix || item.price) * (item.quantite || item.quantity)), 0),
+                payment: {
+                    method: paymentMethod,
+                    number: phoneNumber,
+                    status: "pending"
+                },
+                deliveryAddress: buyerData.location
+            };
 
-      // Sauvegarder dans l'historique
-      let orders = JSON.parse(localStorage.getItem('buyerOrders')) || [];
-      orders.push(newOrder);
-      localStorage.setItem('buyerOrders', JSON.stringify(orders));
+            // Sauvegarder dans l'historique
+            let orders = JSON.parse(localStorage.getItem('buyerOrders')) || [];
+            orders.push(newOrder);
+            localStorage.setItem('buyerOrders', JSON.stringify(orders));
 
-      // Vider le panier
-      localStorage.removeItem('panier');
+            // Vider le panier
+            localStorage.removeItem('panier');
 
-      // Fermer le modal et rediriger
-      bootstrap.Modal.getInstance(document.getElementById('paymentModal')).hide();
-      window.location.href = 'acheteur.html?order=success';
-    }
-</script>
+            // Fermer le modal et rediriger
+            bootstrap.Modal.getInstance(document.getElementById('paymentModal')).hide();
+            window.location.href = 'acheteur.html?order=success';
+        }
+    </script>
 
-                                </body>
-                                </html>
-                                
+</body>
+
+</html>
