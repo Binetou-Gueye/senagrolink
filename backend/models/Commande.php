@@ -63,7 +63,7 @@ class Commande {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getCommandesParBoutique($idBoutique) {
+    public function getCommandesByBoutique($idBoutique) {
         global $pdo;
         
         $stmt = $pdo->prepare("
@@ -91,6 +91,37 @@ class Commande {
         ");
         
         $stmt->execute([$idBoutique]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getCommandesByAcheteur($idAcheteur) {
+        global $pdo;
+        
+        $stmt = $pdo->prepare("
+            SELECT 
+                c.id_commande,
+                c.date_commande,
+                c.statut,
+                u.nom AS nom_utilisateur,
+                d.id_produit,
+                p.nom AS nom_produit,
+                d.quantite,
+                d.prix_unitaire
+            FROM 
+                commande c
+            JOIN 
+                utilisateur u ON c.id_utilisateur = u.id_utilisateur
+            JOIN 
+                details_commande d ON c.id_commande = d.id_commande
+            JOIN 
+                produit p ON d.id_produit = p.id_produit
+            WHERE 
+                c.id_utilisateur = ?
+            ORDER BY 
+                c.date_commande DESC
+        ");
+        
+        $stmt->execute([$idAcheteur]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

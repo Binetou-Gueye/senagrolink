@@ -60,9 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     try {
         // Vérifier si c'est un boutique ou pas
-        if ($_GET['id_boutique']) {
+        if (isset($_GET['id_boutique'])) {
             $commande = new Commande($pdo);
-            $success = $commande->getCommandesParBoutique($_GET['id_boutique']);
+            $success = $commande->getCommandesByBoutique($_GET['id_boutique']);
+            $commandesFormatees = formatCommandes($success);
+        }else if (isset($_GET['id_acheteur'])) {
+            $commande = new Commande($pdo);
+            $success = $commande->getCommandesByAcheteur($_GET['id_acheteur']);
             $commandesFormatees = formatCommandes($success);
         }
 
