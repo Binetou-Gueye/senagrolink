@@ -24,12 +24,14 @@ class Acheteur {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getTypeAcheteur($userI) {
+    public function getTypeAcheteur($userId) {
         $stmt = $this->pdo->prepare("
             SELECT type_acheteur FROM acheteur
             WHERE id_utilisateur = ?
+            LIMIT 1
         ");
-        return $stmt->execute([$userId]);
+        $stmt->execute([$userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

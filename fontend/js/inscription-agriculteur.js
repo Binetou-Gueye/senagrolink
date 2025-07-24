@@ -71,12 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
             type: 'acheteur',
             nom: document.getElementById('buyerName').value,
             email: document.getElementById('buyerEmail').value,
-            mot_de_passe: document.getElementById('mot_de_passe').value,
+            mot_de_passe: document.getElementById('buyerPassword').value,
             localisation: document.getElementById('buyerLocation').value,
             telephone: document.getElementById('buyerPhone').value,
             type_acheteur: document.getElementById('buyerType').value
-        };   
-        console.log(newBuyer)     
+        };      
         try {
 
             const response = await fetch('http://localhost/agrolink/backend/api/register.php', {
@@ -110,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
         console.log("erreur")
     }   
-    });
+    
+});
     
     // // Inscription Acheteur
     // buyerForm.addEventListener('submit', function(e) {
@@ -190,7 +190,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Redirection après 3 secondes
             setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                if (result.user.type == 'acheteur') {
+                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+                }else{
+                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                }
             }, 3000);
         } else {
             errorMsg.textContent = "Erreur lors de l\'inscription";

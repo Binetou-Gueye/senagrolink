@@ -419,23 +419,38 @@
 
 <body>
     <!-- Votre Navbar existante -->
-    <nav>
-        <ul class="nav-bar">
-            <li class="logo"><a href="#">
-                    <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;">
-                </a></li>
-            <input type="checkbox" id="check">
-            <span class="menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="marche.html">Marche</a></li>
-                <li><a href="inscription.html">Inscription</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
+     <nav class="top-bar navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="acheteur.html">Mon espace</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="boutique.html">Boutique</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="contact.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" style="background-color: #2e7d32; color: white;" href="#" data-bs-toggle="modal" data-bs-target="#deconnexionModal">Déconnexion</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->

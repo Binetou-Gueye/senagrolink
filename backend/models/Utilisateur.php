@@ -22,20 +22,30 @@ class Utilisateur {
     }
 
     public function verifierUtilisateur($email, $mot_de_passe) {
-        $stmt = $this->pdo->prepare("
-            SELECT * FROM utilisateur 
-            WHERE email = ?
-            LIMIT 1
-        ");
+    $email = trim($email);
+    $mot_de_passe = trim($mot_de_passe); // Nettoyage important
+    
+    try {
+        $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE email = ? LIMIT 1");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
-            unset($user['mot_de_passe']); // Retire le mot de passe avant de retourner
+
+        if (!$user) {
+            error_log("Utilisateur non trouvé");
+            return false;
+        }
+
+        if (password_verify($mot_de_passe, $user['mot_de_passe'])) {
+            unset($user['mot_de_passe']);
             return $user;
         }
         
         return false;
+
+    } catch (PDOException $e) {
+        error_log("Erreur PDO: ".$e->getMessage());
+        return false;
     }
+}
 }
 ?>
