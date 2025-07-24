@@ -64,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'localisation' => $user['localisation'],
                     'telephone' => $user['telephone'],
                     'boutique' => $bourique,
-                    'type' => $userType
+                    'type' => $userType,
+                    'date_creation' => $user['date_creation']
                 ]
             ]);
         }elseif ($userType == 'acheteur') {
@@ -87,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'email' => $user['email'],
                     'localisation' => $user['localisation'],
                     'telephone' => $user['telephone'],
-                    'boutique' => $bourique,
                     'type' => $userType,
-                    'type_acheteur' => $type_acheteur
+                    'type_acheteur' => $type_acheteur['type_acheteur'],
+                    'date_creation' => $user['date_creation']
                 ]
             ]);
         }
