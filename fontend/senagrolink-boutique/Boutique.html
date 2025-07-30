@@ -419,23 +419,38 @@
 
 <body>
     <!-- Votre Navbar existante -->
-    <nav>
-        <ul class="nav-bar">
-            <li class="logo"><a href="#">
-                    <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 70px;">
-                </a></li>
-            <input type="checkbox" id="check">
-            <span class="menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="marche.html">Marche</a></li>
-                <li><a href="inscription.html">Inscription</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
+     <nav class="top-bar navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="pictures/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="acheteur.html">Mon espace</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="boutique.html">Boutique</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="contact.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" style="background-color: #2e7d32; color: white;" href="#" data-bs-toggle="modal" data-bs-target="#deconnexionModal">Déconnexion</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -500,334 +515,10 @@
     <!-- Featured Shops -->
     <section class="featured-section">
         <div class="container">
-            <h2 class="section-title animate-fade">Découvrez nos 15 meilleures boutiques</h2>
+            <h2 class="section-title animate-fade" id="number_boutiques">Découvrez nos 15 meilleures boutiques</h2>
 
-            <div class="row">
+            <div class="row" id="card-body">
                 <!-- Boutique 1 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="pictures/boutiqueniayes.jpg" alt="">
-
-                        </div>
-                        <div class="shop-body">
-                            <h3>Mbay de Niayes</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Dakar, Niayes</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-half"></i> 4.7</span>
-                                <span><i class="bi bi-box"></i> 5 produits</span>
-                            </div>
-                            <a href="Visite1.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 2 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="pictures/legumkhady.jpg" alt="Khady legumes">
-
-                        </div>
-                        <div class="shop-body">
-                            <h3>Khady legumes</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Dakar</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i> 5.0</span>
-                                <span><i class="bi bi-box"></i> 5 produits</span>
-                            </div>
-                            <a href="Visite2.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 3 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="pictures/image3.jpg" alt="Abdou Legums">
-                            <div class="shop-badge new-badge">Nouveau</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Abdou Legums</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Saint-Louis</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star"></i> 4.2</span>
-                                <span><i class="bi bi-box"></i> 5 produits</span>
-                            </div>
-                            <a href="Visite3.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 4 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="pictures/F14.jpg" alt="Jardin Potager de Kaolack">
-                        </div>
-                        <div class="shop-body">
-                            <h3>Jardin Potager de Kaolack</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Kaolack</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star"></i> 4.1</span>
-                                <span><i class="bi bi-box"></i> 5 produits</span>
-                            </div>
-                            <a href="Visite4.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 5 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="pictures/image2.jpg" alt="Jardin agricole de  Fatick">
-                            <div class="shop-badge">Spécialité</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Jardin agricole de Fatick</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Fatick</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
-                                        class="bi bi-star"></i> 3.8</span>
-                                <span><i class="bi bi-box"></i> 5 produits</span>
-                            </div>
-
-                            <a href="Visite5.html" class="btn btn-shop">Visiter la boutique</a>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 6 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Maraîcher de Ziguinchor">
-                        </div>
-                        <div class="shop-body">
-                            <h3>Maraîcher de Ziguinchor</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Ziguinchor</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star"></i> 4.3</span>
-                                <span><i class="bi bi-box"></i> 31 produits</span>
-                            </div>
-
-                            <a href="Visite6.html" class="btn btn-shop">Visiter la boutique</a> </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 7 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Riziculture de la Vallée">
-                            <div class="shop-badge premium-badge">Premium</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Riziculture de la Vallée</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Kolda</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-half"></i> 4.6</span>
-                                <span><i class="bi bi-box"></i> 25 produits</span>
-                            </div>
-                            <a href="Visite7.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 8 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Verger de Tamba">
-                            <div class="shop-badge new-badge">Nouveau</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Verger de Tamba</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Tambacounda</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star"></i> 4.0</span>
-                                <span><i class="bi bi-box"></i> 22 produits</span>
-                            </div>
-                            <a href="Visite8.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 9 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Ferme Laitière de Louga">
-                            <div class="shop-badge">Spécialité</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Ferme Laitière de Louga</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Louga</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
-                                        class="bi bi-star"></i> 3.7</span>
-                                <span><i class="bi bi-box"></i> 15 produits</span>
-                            </div>
-                            <a href="Visite9.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 10 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Miel de Kédougou">
-                            <div class="shop-badge organic-badge">Bio</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Miel de Kédougou</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Kédougou</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i> 5.0</span>
-                                <span><i class="bi bi-box"></i> 8 produits</span>
-                            </div>
-                            <a href="Visite10.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 11 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Jardin Exotique de Sédhiou">
-                            <div class="shop-badge">Spécialité</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Jardin Exotique de Sédhiou</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Sédhiou</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-                                    3.2</span>
-                                <span><i class="bi bi-box"></i> 12 produits</span>
-                            </div>
-                            <a href="Visite11.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 12 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Ferme Maraîchère de Kaffrine">
-                            <div class="shop-badge organic-badge">Bio</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Ferme Maraîchère de Kaffrine</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Kaffrine</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star"></i> 4.1</span>
-                                <span><i class="bi bi-box"></i> 27 produits</span>
-                            </div>
-                            <a href="Visite12.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 13 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.2s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Ferme Bio de Diourbel">
-                            <div class="shop-badge organic-badge">Bio</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Ferme Bio de Diourbel</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Diourbel</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
-                                        class="bi bi-star"></i> 3.8</span>
-                                <span><i class="bi bi-box"></i> 19 produits</span>
-                            </div>
-                            <a href="Visite13.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 14 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.3s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Verger de Matam">
-                            <div class="shop-badge new-badge">Nouveau</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Verger de Matam</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Matam</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-                                    3.0</span>
-                                <span><i class="bi bi-box"></i> 14 produits</span>
-                            </div>
-                            <a href="Visite14.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boutique 15 -->
-                <div class="col-lg-4 col-md-6 animate-fade" style="animation-delay: 0.4s">
-                    <div class="shop-card">
-                        <div class="shop-header">
-                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Ferme Mixte de Kolda">
-                            <div class="shop-badge premium-badge">Premium</div>
-                        </div>
-                        <div class="shop-body">
-                            <h3>Ferme Mixte de Kolda</h3>
-                            <p class="location"><i class="bi bi-geo-alt"></i> Kolda</p>
-                            <div class="shop-info">
-                                <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-                                    3.0</span>
-                                <span><i class="bi bi-box"></i> 14 produits</span>
-                            </div>
-                            <a href="Visite15.html" class="btn btn-shop">Visiter la boutique</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -1121,6 +812,24 @@
         </div>
     </div>
 
+    <!-- Modal de déconnexion -->
+    <div class="modal fade" id="deconnexionModal" tabindex="-1" aria-labelledby="deconnexionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deconnexionModalLabel">Confirmation de déconnexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Êtes-vous sûr de vouloir vous déconnecter ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn" style="color: white; background-color: #1b5e20;" id="confirmDeconnexion">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         // Gestion des méthodes de paiement
         document.addEventListener('DOMContentLoaded', function () {
@@ -1231,7 +940,10 @@
             window.location.href = 'acheteur.html?order=success';
         }
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="boutique.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 
 </html>

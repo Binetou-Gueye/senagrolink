@@ -188,10 +188,15 @@ document.addEventListener('DOMContentLoaded', function() {
             successMsg.classList.remove('d-none');
             receptionMsg.classList.remove('d-none');
             
-            // Redirection après 3 secondes
             setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                if (result.user.type == "acheteur") {
+                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+                }else{
+                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                }
             }, 3000);
+            // Redirection après 3 secondes
+            
         } else {
             errorMsg.textContent = "Erreur lors de l\'inscription";
             errorMsg.classList.remove('d-none');

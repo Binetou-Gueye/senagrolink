@@ -6,12 +6,12 @@ class Acheteur {
         $this->pdo = $pdo;
     }
 
-    public function creerAcheteur($userId, $typeAcheteur) {
+    public function creerAcheteur($userId, $typeAcheteur, $id_panier) {
         $stmt = $this->pdo->prepare("
-            INSERT INTO acheteur (id_utilisateur, type_acheteur)
-            VALUES (?, ?)
+            INSERT INTO acheteur (id_utilisateur, type_acheteur, id_panier)
+            VALUES (?, ?, ?)
         ");
-        return $stmt->execute([$userId, $typeAcheteur]);
+        return $stmt->execute([$userId, $typeAcheteur, $id_panier]);
     }
 
     public function getAcheteurByUserId($userId) {
@@ -24,12 +24,13 @@ class Acheteur {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getTypeAcheteur($userI) {
+    public function getTypeAcheteur($userId) {
         $stmt = $this->pdo->prepare("
             SELECT type_acheteur FROM acheteur
             WHERE id_utilisateur = ?
         ");
-        return $stmt->execute([$userId]);
+        $stmt->execute([$userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>
