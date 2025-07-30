@@ -17,8 +17,18 @@ class Produit {
 
     public function getProduitsByBoutique($idBoutique) {
         $stmt = $this->pdo->prepare("
-            SELECT * FROM produit 
-            WHERE id_boutique = ?
+            SELECT 
+            p.id_produit ,
+            p.nom ,
+            p.description ,
+            p.prix_unitaire ,
+            p.quantite_stock ,
+            p.unite_vente ,
+            p.certification ,
+            p.unite_vente ,
+            p.categorie
+            FROM produit p, boutique b
+            WHERE b. id_boutique = ?
         ");
         $stmt->execute([$idBoutique]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

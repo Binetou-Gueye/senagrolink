@@ -44,18 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (empty($_GET['agriculteur'])) {
             throw new Exception("Paramètre agriculteur manquant", 400);
         }
-
-        // Récupérer la boutique
-        $boutiqueModel = new Boutique($pdo);
-        $boutique = $boutiqueModel->getBoutiqueByAgriculteur($_GET['agriculteur']);
         
-        if (!$boutique) {
-            throw new Exception("Boutique non trouvée", 404);
-        }
+        // Récupérer la boutique
+        // $boutiqueModel = new Boutique($pdo);
+        // $boutique = $boutiqueModel->getBoutiqueByAgriculteur($_GET['agriculteur']);
+        
+        // if (!$boutique) {
+        //     throw new Exception("Boutique non trouvée", 404);
+        // }
+
 
         // Récupérer les produits
         $produitModel = new Produit($pdo);
-        $produits = $produitModel->getProduitsByBoutique($boutique['id_boutique']);
+        $produits = $produitModel->getProduitsByBoutique($_GET['agriculteur']);
         
         echo json_encode($produits);
         

@@ -8,6 +8,7 @@ header("Content-Type: application/json");
 require_once __DIR__.'/../models/Utilisateur.php';
 require_once __DIR__.'/../models/Agriculteur.php';
 require_once __DIR__.'/../models/Acheteur.php';
+require_once __DIR__.'/../models/Panier.php';
 require_once __DIR__.'/../models/Boutique.php';
 
 // Connexion DB (à mettre dans un fichier séparé si nécessaire)
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         $userId = $pdo->lastInsertId();
+        error_log($userId);
         
         // 2. Créer le profil agriculteur
         if ($data['type'] === 'agriculteur') {
@@ -43,16 +45,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Création automatique de la boutique
             $boutique = new Boutique($pdo);
             $boutique->creerBoutique(
-                $userId, // id_agriculteur
+                $userId,
+                'Boutique de '.$data['nom'], // id_agriculteur
                 'user.png', // Avatar par défaut
                 $data['localisation'] // Utilise la localisation comme emplacement initial
             );
         }
         if ($data['type'] === 'acheteur') {
             $acheteur = new Acheteur($pdo);
+            $panier = new Panier($pdo);
+            $id_panier = $panier->creerPanier();
             $acheteur->creerAcheteur(
                 $userId,
-                $data['type_acheteur']
+                $data['type_acheteur'],
+                $id_panier
             );
         }
         
