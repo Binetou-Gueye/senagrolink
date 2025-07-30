@@ -63,7 +63,7 @@ class Commande {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getCommandesParBoutique($idBoutique) {
+    public function getCommandesByBoutique($idBoutique) {
         global $pdo;
         
         $stmt = $pdo->prepare("
@@ -96,7 +96,6 @@ class Commande {
         $stmt->execute([$idBoutique]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function getCommandesParAcheteur($id_acheteur) {
         global $pdo;
         

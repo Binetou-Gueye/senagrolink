@@ -28,6 +28,7 @@ class Acheteur {
         $stmt = $this->pdo->prepare("
             SELECT type_acheteur FROM acheteur
             WHERE id_utilisateur = ?
+            LIMIT 1
         ");
         $stmt->execute([$userId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);

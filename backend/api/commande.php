@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Vérifier si c'est un boutique ou pas
         if (!empty($_GET['id_boutique'])) {
             $commande = new Commande($pdo);
-            $success = $commande->getCommandesParBoutique($_GET['id_boutique']);
+            $success = $commande->getCommandesByBoutique($_GET['id_boutique']);
             $commandesFormatees = formatCommandes($success);
         }elseif (!empty($_GET['acheteur'])) {
             $commande = new Commande($pdo);
