@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Afficher les informations du profil si elles existent
     if (buyerData.nom) {
-        document.getElementById('welcomeMessage').textContent = `Bienvenue, ${buyerData.nom} !`;
+        document.getElementById('welcomeMessage').textContent = `Bienvenue sur votre espace acheteur, ${buyerData.nom} !`;
         document.getElementById('buyerNameDisplay').textContent = buyerData.nom;
         document.getElementById('buyerEmailDisplay').textContent = buyerData.email;
         document.getElementById('buyerPhoneDisplay').textContent = buyerData.telephone;
         document.getElementById('buyerLocationDisplay').textContent = buyerData.localisation;
         document.getElementById('buyerTypeDisplay').textContent = buyerData.type_acheteur;
-        document.getElementById('registrationDateDisplay').textContent = buyerData.registrationDate;
+        document.getElementById('date_creation').textContent = buyerData.date_creation;
     }
 
 
@@ -52,5 +52,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `).join('');
     }
-
+  
 });
