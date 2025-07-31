@@ -41,10 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     try {
         // Vérifier l'agriculteur
-        if (empty($_GET['agriculteur'])) {
-            throw new Exception("Paramètre agriculteur manquant", 400);
-        }
+        // if (empty($_GET['agriculteur'])) {
+        //     throw new Exception("Paramètre agriculteur manquant", 400);
+        // }
         
+        $produitModel = new Produit($pdo);
+        if (!empty($_GET['agriculteur'])) {
+            $produits = $produitModel->getProduitsByAgriculteur($_GET['agriculteur']);
+            echo json_encode($produits);
+        }elseif (!empty($_GET['boutique'])) {
+            $produits = $produitModel->getProduitsByBoutique($_GET['boutique']);
+            echo json_encode($produits);
+        }
         // Récupérer la boutique
         // $boutiqueModel = new Boutique($pdo);
         // $boutique = $boutiqueModel->getBoutiqueByAgriculteur($_GET['agriculteur']);
@@ -55,10 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
         // Récupérer les produits
-        $produitModel = new Produit($pdo);
-        $produits = $produitModel->getProduitsByBoutique($_GET['agriculteur']);
+        // $produitModel = new Produit($pdo);
+        // $produits = $produitModel->getProduitsByBoutique($_GET['agriculteur']);
         
-        echo json_encode($produits);
+        // echo json_encode($produits);
         
     } catch (Exception $e) {
         http_response_code($e->getCode() ?: 500);

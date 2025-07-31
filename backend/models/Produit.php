@@ -15,7 +15,7 @@ class Produit {
         return $stmt->execute([$idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie]);
     }
 
-    public function getProduitsByBoutique($idUser) {
+    public function getProduitsByAgriculteur($idUser) {
         $stmt = $this->pdo->prepare("
             SELECT 
             p.id_produit ,
@@ -31,6 +31,24 @@ class Produit {
             WHERE b.id_agriculteur = ? AND p.id_boutique = b.id_boutique
         ");
         $stmt->execute([$idUser]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getProduitsByBoutique($id_boutique) {
+        $stmt = $this->pdo->prepare("
+            SELECT 
+            p.id_produit ,
+            p.nom ,
+            p.description ,
+            p.prix_unitaire ,
+            p.quantite_stock ,
+            p.unite_vente ,
+            p.certification ,
+            p.unite_vente ,
+            p.categorie
+            FROM boutique b, produit p
+            WHERE b.id_boutique = ? AND p.id_boutique = b.id_boutique
+        ");
+        $stmt->execute([$id_boutique]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

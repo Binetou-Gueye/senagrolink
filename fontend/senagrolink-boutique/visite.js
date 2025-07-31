@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     var id_boutique = url.split('=')[1]
     id_boutique = decodeURIComponent(id_boutique)
 
-    const response = await fetch(`http://localhost/agrolink/backend/api/produits.php?agriculteur=${id_boutique}`);
+    const response = await fetch(`http://localhost/agrolink/backend/api/produits.php?boutique=${id_boutique}`);
     const produits = await response.json();
 
     console.log(produits)
