@@ -60,17 +60,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     try {
         // Vérifier si c'est un boutique ou pas
+        
+        $commande = new Commande($pdo);
         if (!empty($_GET['id_boutique'])) {
-            $commande = new Commande($pdo);
             $success = $commande->getCommandesParBoutique($_GET['id_boutique']);
             $commandesFormatees = formatCommandes($success);
+            echo json_encode($commandesFormatees);
         }elseif (!empty($_GET['acheteur'])) {
-            $commande = new Commande($pdo);
             $success = $commande->getCommandesParAcheteur($_GET['acheteur']);
             $commandesFormatees = formatCommandes($success);
-        }
+            echo json_encode($commandesFormatees);
+        }elseif (!empty($_GET['status'])) {
+            $status = $_GET['status'];
+            $idCommande = $_GET['id_commande'];
+            if ($status=='Validé') {
+                $success = $commande->getCommandesForChangeStatus($idCommande);
+            }
 
-        echo json_encode($commandesFormatees);
+            $success = $commande->changeStatus($status,$idCommande);
+            echo json_encode($success);
+        }
         
     } catch (Exception $e) {
         http_response_code($e->getCode() ?: 500);

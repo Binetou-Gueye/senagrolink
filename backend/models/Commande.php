@@ -130,6 +130,38 @@ class Commande {
         $stmt->execute([$id_acheteur]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getCommandesForChangeStatus($id_commande) {
+        global $pdo;
+        
+        $stmt = $pdo->prepare("
+            SELECT 
+                c.id_commande,
+                d.id_produit,
+                d.quantite
+            FROM 
+                commande c
+            JOIN 
+                details_commande d ON c.id_commande = d.id_commande
+            JOIN 
+                produit p ON d.id_produit = p.id_produit
+            WHERE 
+                c.id_commande = ?
+            ORDER BY 
+                c.date_commande DESC
+        ");
+        
+        $stmt->execute([$id_commande]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function changeStatus($statut, $id_commande) {
+        $stmt = $this->pdo->prepare("
+             UPDATE commande SET statut = ? WHERE id_commande = ?;
+        ");
+        $stmt->execute([$statut, $id_commande]);
+        return $this->pdo->lastInsertId();
+    }
 }
 
 function formatCommandes($commandesBrutes) {
