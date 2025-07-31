@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 },
                 body: JSON.stringify(productData)
             });
+            setTimeout(() => {
+                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+            }, 3000);
 
     //     const result = await response.json();
             
@@ -46,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
     //         localStorage.setItem('currentUser', JSON.stringify(newFarmer));            
             
     //         // Afficher message de succès
-    //         successMsg.textContent = "Inscription réussie en tant qu'agriculteur!";
     //         successMsg.classList.remove('d-none');
     //         receptionMsg.classList.remove('d-none');
             

@@ -30,12 +30,23 @@ class Utilisateur {
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
+        
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
             unset($user['mot_de_passe']); // Retire le mot de passe avant de retourner
             return $user;
         }
-        
+        error_log(password_verify($mot_de_passe, $user['mot_de_passe']));
         return false;
     }
+
+    public function lastUtilisateur($id) {
+        $stmt = $this->pdo->prepare("
+            SELECT * 
+            FROM utilisateur 
+            WHERE id_utilisateur = ?
+        ");
+        return $stmt->execute([$id]);
+    }
+
 }
 ?>
