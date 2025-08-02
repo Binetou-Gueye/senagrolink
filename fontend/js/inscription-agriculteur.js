@@ -6,6 +6,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
     const receptionMsg = document.getElementById('receptionMsg');
+
+    const toast = document.getElementById('toast');
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    var alertTrigger = document.getElementById('liveAlertBtn')
+
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
+
+    // if (alertTrigger) {
+    //     alertTrigger.addEventListener('click', function () {
+    //     alert('Nice, you triggered this alert message!', 'success')
+    // })
+    // }
     
     // Stocker les utilisateurs dans localStorage
     if (!localStorage.getItem('currentUser')) {
@@ -66,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inscription Acheteur 
     buyerForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-            
         const newBuyer = {
             type: 'acheteur',
             nom: document.getElementById('buyerName').value,
@@ -79,13 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(newBuyer)     
         try {
 
-            const response = await fetch('http://localhost/agrolink/backend/api/register.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newBuyer)
-            });
+            // const response = await fetch('http://localhost/agrolink/backend/api/register.php', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(newBuyer)
+            // });
 
         const result = await response.json();
             
@@ -93,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('currentUser', JSON.stringify(newBuyer));            
             
             // Afficher message de succès
-            successMsg.textContent = "Inscription réussie en tant qu'acheteur!";
-            successMsg.classList.remove('d-none');
-            receptionMsg.classList.remove('d-none');
+            // successMsg.textContent = "Inscription réussie en tant qu'acheteur!";
+            // successMsg.classList.remove('d-none');
+            // receptionMsg.classList.remove('d-none');
             
             // Redirection après 3 secondes
             setTimeout(() => {
@@ -157,7 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // // Connexion
     loginForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-
+        
+        alertPlaceholder.innerHTML = ""
         // Stocker les utilisateurs dans localStorage
         if (!localStorage.getItem('currentUser')) {
             localStorage.setItem('currentUser', {});
@@ -177,16 +194,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({ email, mot_de_passe })
             });
-
+            
         const result = await response.json();
         console.log()
         if (result.success == true) {
             localStorage.setItem('currentUser', JSON.stringify(result.user));            
-            
+            alert('Connexion Reussi :Bienvenu '+ result.user.nom+' !', 'success')
             // Afficher message de succès
-            successMsg.textContent = "Bienvenu!";
-            successMsg.classList.remove('d-none');
-            receptionMsg.classList.remove('d-none');
+            // successMsg.textContent = "Bienvenu!";
+            // successMsg.classList.remove('d-none');
+            // receptionMsg.classList.remove('d-none');
             
             setTimeout(() => {
                 if (result.user.type == "acheteur") {
@@ -198,9 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Redirection après 3 secondes
             
         } else {
-            errorMsg.textContent = "Erreur lors de l\'inscription";
-            errorMsg.classList.remove('d-none');
-            setTimeout(() => errorMsg.classList.add('d-none'), 3000);
+            alert('Login ou mot de passe incorrect !', 'danger')
             return;
         }
     } catch (error) {
@@ -210,25 +225,25 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("erreur")
     }   
 
-        // Trouver l'utilisateur
-        const user = users.find(u => u.email === email && u.password === password);
+    //     // Trouver l'utilisateur
+    //     const user = users.find(u => u.email === email && u.password === password);
         
-        if (user) {
-            // Connexion réussie
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            successMsg.textContent = "Connexion réussie!";
-            successMsg.classList.remove('d-none');
+    //     if (user) {
+    //         // Connexion réussie
+    //         localStorage.setItem('currentUser', JSON.stringify(user));
+    //         successMsg.textContent = "Connexion réussie!";
+    //         successMsg.classList.remove('d-none');
             
-            // Redirection selon le type d'utilisateur
-            setTimeout(() => {
-                window.location.href = user.type === 'farmer' ? 'agriculteur.html' : 'acheteur.html';
-            }, 1500);
-        } else {
-            // Échec de connexion
-            errorMsg.textContent = "Email ou mot de passe incorrect!";
-            errorMsg.classList.remove('d-none');
-            setTimeout(() => errorMsg.classList.add('d-none'), 3000);
-        }
+    //         // Redirection selon le type d'utilisateur
+    //         setTimeout(() => {
+    //             window.location.href = user.type === 'farmer' ? 'agriculteur.html' : 'acheteur.html';
+    //         }, 1500);
+    //     } else {
+    //         // Échec de connexion
+    //         errorMsg.textContent = "Email ou mot de passe incorrect!";
+    //         errorMsg.classList.remove('d-none');
+    //         setTimeout(() => errorMsg.classList.add('d-none'), 3000);
+    //     }
     });
     
     // // Mot de passe oublié

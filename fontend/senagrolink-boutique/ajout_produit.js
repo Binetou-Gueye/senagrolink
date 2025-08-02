@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function(e) {
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
+
+
     const farmerForm = document.getElementById('addProductForm');
     var produit = JSON.parse(localStorage.getItem('produit'))
     if (produit) {
@@ -15,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     farmerForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         var user = JSON.parse(localStorage.getItem('currentUser'))
-        console.log(typeof(user))
-        console.log(user.boutique)
+        alertPlaceholder.innerHTML = ""
         // Récupérer les valeurs du formulaire
         const productData = {
             id_agriculteur : user.id,
@@ -39,9 +47,15 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 },
                 body: JSON.stringify(productData)
             });
-            setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
-            }, 3000);
+            const result = await response.json();
+            if (result.success == true) {
+                alert('Votre nouveau produit est enregistré avec succés !', 'success')
+                setTimeout(() => {
+                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                }, 3000);
+            }else{
+                alert('Erreur lors de l\'enregistrement !', 'danger')
+            }
 
     //     const result = await response.json();
             
