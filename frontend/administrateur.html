@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - SenAgroLink</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --danger-color: #dc3545;
+            --warning-color: #fd7e14;
+            --info-color: #17a2b8;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --sidebar-width: 250px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-header h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .sidebar-header p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+
+        .sidebar-menu .nav-link {
+            color: white;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: var(--accent-color);
+            color: white;
+        }
+
+        .sidebar-menu .nav-link i {
+            width: 20px;
+            margin-right: 0.75rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title h1 {
+            color: var(--dark-color);
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .page-title p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-admin {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        /* Dashboard Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-card.users {
+            border-left-color: var(--primary-color);
+        }
+
+        .stat-card.products {
+            border-left-color: var(--secondary-color);
+        }
+
+        .stat-card.orders {
+            border-left-color: var(--accent-color);
+        }
+
+        .stat-card.revenue {
+            border-left-color: var(--danger-color);
+        }
+
+        .stat-card .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card.users .stat-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .stat-card.products .stat-icon {
+            background: linear-gradient(135deg, var(--secondary-color), var(--info-color));
+        }
+
+        .stat-card.orders .stat-icon {
+            background: linear-gradient(135deg, var(--accent-color), var(--warning-color));
+        }
+
+        .stat-card.revenue .stat-icon {
+            background: linear-gradient(135deg, var(--danger-color), var(--warning-color));
+        }
+
+        .stat-card .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .stat-change {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .stat-card .stat-change.positive {
+            color: var(--primary-color);
+        }
+
+        .stat-card .stat-change.negative {
+            color: var(--danger-color);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .chart-card h5 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 320px;
+            width: 100%;
+        }
+
+        /* Recent Activity */
+        .recent-activity {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .activity-icon.order {
+            background: var(--accent-color);
+        }
+
+        .activity-icon.user {
+            background: var(--primary-color);
+        }
+
+        .activity-icon.product {
+            background: var(--secondary-color);
+        }
+
+        .activity-icon.payment {
+            background: var(--danger-color);
+        }
+
+        .activity-content h6 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .activity-content p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .activity-time {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        /* Tables */
+        .table-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .table-card h5 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table th {
+            border-top: none;
+            font-weight: 600;
+            color: var(--dark-color);
+            background: #f8f9fa;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.active {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--primary-color);
+        }
+
+        .status-badge.pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--accent-color);
+        }
+
+        .status-badge.suspended {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--danger-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Toggle Sidebar Button */
+        .sidebar-toggle {
+            display: none;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="media/images/SAL.png" alt="SenAgroLink Logo">
+            <h4>SenAgroLink</h4>
+            <p>Administration</p>
+        </div>
+        
+        <div class="sidebar-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#users">
+                        <i class="fas fa-users"></i>
+                        Utilisateurs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">
+                        <i class="fas fa-box"></i>
+                        Produits
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#orders">
+                        <i class="fas fa-shopping-cart"></i>
+                        Commandes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#analytics">
+                        <i class="fas fa-chart-line"></i>
+                        Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#settings">
+                        <i class="fas fa-cog"></i>
+                        Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reports">
+                        <i class="fas fa-file-alt"></i>
+                        Rapports
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#support">
+                        <i class="fas fa-headset"></i>
+                        Support
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Dashboard Administrateur</h1>
+                <p>Bienvenue dans votre espace d'administration SenAgroLink</p>
+            </div>
+            <div class="admin-actions">
+                <button class="btn btn-outline-primary btn-admin">
+                    <i class="fas fa-bell me-2"></i>Notifications
+                </button>
+                <button class="btn btn-primary btn-admin">
+                    <i class="fas fa-plus me-2"></i>Nouvelle action
+                </button>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card users">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">847</div>
+                <div class="stat-label">Utilisateurs actifs</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up me-1"></i>+8% ce mois
+                </div>
+            </div>
+
+            <div class="stat-card products">
+                <div class="stat-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-number">1,234</div>
+                <div class="stat-label">Produits en ligne</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up me-1"></i>+12% ce mois
+                </div>
+            </div>
+
+            <div class="stat-card orders">
+                <div class="stat-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="stat-number">456</div>
+                <div class="stat-label">Commandes ce mois</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up me-1"></i>+15% ce mois
+                </div>
+            </div>
+
+            <div class="stat-card revenue">
+                <div class="stat-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="stat-number">12.8M</div>
+                <div class="stat-label">Chiffre d'affaires (FCFA)</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up me-1"></i>+18% ce mois
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-card">
+                <h5>Évolution des ventes (6 derniers mois)</h5>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h5>Répartition des produits</h5>
+                <div class="chart-container">
+                    <canvas id="productsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity & Quick Actions -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="recent-activity">
+                    <h5>Activité récente</h5>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon order">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6>Nouvelle commande #ORD-2024-001</h6>
+                            <p>Commande de 25kg de tomates par Mamadou Diallo</p>
+                        </div>
+                        <div class="activity-time">Il y a 5 min</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon user">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6>Nouveau vendeur inscrit</h6>
+                            <p>Fatou Sall a rejoint la plateforme comme agriculteur</p>
+                        </div>
+                        <div class="activity-time">Il y a 15 min</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon product">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6>Nouveau produit ajouté</h6>
+                            <p>Oignons frais ajoutés par Khady Ba</p>
+                        </div>
+                        <div class="activity-time">Il y a 30 min</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon payment">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6>Paiement reçu</h6>
+                            <p>Paiement de 15,000 FCFA pour commande #ORD-2023-998</p>
+                        </div>
+                        <div class="activity-time">Il y a 1h</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="table-card">
+                    <h5>Commandes en attente</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Client</th>
+                                    <th>Montant</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#001</td>
+                                    <td>M. Diallo</td>
+                                    <td>8,500 FCFA</td>
+                                    <td><span class="status-badge pending">En attente</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#002</td>
+                                    <td>Mme Sall</td>
+                                    <td>5,200 FCFA</td>
+                                    <td><span class="status-badge active">Confirmée</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#003</td>
+                                    <td>M. Ba</td>
+                                    <td>12,000 FCFA</td>
+                                    <td><span class="status-badge pending">En attente</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Users Table -->
+        <div class="table-card">
+            <h5>Utilisateurs récents</h5>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Utilisateur</th>
+                            <th>Type</th>
+                            <th>Email</th>
+                            <th>Date d'inscription</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Avatar">
+                                    <div>
+                                        <div class="fw-bold">Mamadou Diallo</div>
+                                        <small class="text-muted">Acheteur</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Acheteur</td>
+                            <td>mamadou@email.com</td>
+                            <td>15/01/2024</td>
+                            <td><span class="status-badge active">Actif</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary me-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Avatar">
+                                    <div>
+                                        <div class="fw-bold">Fatou Sall</div>
+                                        <small class="text-muted">Agriculteur</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Agriculteur</td>
+                            <td>fatou@email.com</td>
+                            <td>14/01/2024</td>
+                            <td><span class="status-badge pending">En attente</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary me-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Avatar">
+                                    <div>
+                                        <div class="fw-bold">Khady Ba</div>
+                                        <small class="text-muted">Agriculteur</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Agriculteur</td>
+                            <td>khady@email.com</td>
+                            <td>13/01/2024</td>
+                            <td><span class="status-badge active">Actif</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary me-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar Toggle
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('show');
+        });
+
+        // Sales Chart - Évolution des ventes avec des données raisonnables
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                datasets: [{
+                    label: 'Ventes (FCFA)',
+                    data: [8500000, 9200000, 10500000, 11800000, 12500000, 12800000],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#28a745',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return (value / 1000000) + 'M';
+                            },
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    }
+                },
+                elements: {
+                    point: {
+                        hoverRadius: 8
+                    }
+                }
+            }
+        });
+
+        // Products Chart - Répartition des produits avec des pourcentages équilibrés
+        const productsCtx = document.getElementById('productsChart').getContext('2d');
+        new Chart(productsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Légumes', 'Fruits', 'Céréales', 'Intrants'],
+                datasets: [{
+                    data: [35, 28, 22, 15],
+                    backgroundColor: [
+                        '#28a745',
+                        '#20c997',
+                        '#ffc107',
+                        '#fd7e14'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        // Navigation
+        document.querySelectorAll('.sidebar-menu .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar-menu .nav-link').forEach(l => {
+                    l.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Here you would typically load different content based on the clicked link
+                const section = this.getAttribute('href').substring(1);
+                console.log('Loading section:', section);
+            });
+        });
+
+        // Auto-refresh stats every 30 seconds with realistic increments
+        setInterval(() => {
+            // Simulate updating stats with small, realistic increments
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const currentText = stat.textContent;
+                const currentValue = parseInt(currentText.replace(/[^\d]/g, ''));
+                
+                // Small random increment (1-3 for users, 2-5 for products, 1-2 for orders, 100k-300k for revenue)
+                let increment = 0;
+                if (currentText.includes('M')) {
+                    increment = Math.floor(Math.random() * 3) + 1; // 100k-300k
+                    const newValue = currentValue + increment;
+                    stat.textContent = newValue + 'M';
+                } else {
+                    increment = Math.floor(Math.random() * 3) + 1; // 1-3
+                    const newValue = currentValue + increment;
+                    stat.textContent = newValue.toLocaleString();
+                }
+            });
+        }, 30000);
+    </script>
+</body>
+</html>

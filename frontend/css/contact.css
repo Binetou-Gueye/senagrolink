@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+body{
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: url(media/images/Legum2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center ;
+    
+}
+.container-fluid{
+    font-family: Arimo;
+    font-weight: bold;
+    font-size: 18px;
+}
+main ul li a{
+    list-style: none;
+    text-decoration: none;
+    font-size: 16px;
+    color: #212121;
+}
+
+.main{
+    font-size: 20px;
+    font-weight: 500;
+}
+.main-title{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.second-title{
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;  
+}
+.main-text{
+    padding-top: 50px;
+}
+#list-main{
+    box-shadow: 7px 3px 3px rgba(44, 53, 53, 0.5);
+    background: rgba(255, 253, 253, 0.3);
+    border-radius: 5px;
+    margin: 3px;
+    position: relative;
+    right: 5px;
+}
+
+nav li a{
+    color: #212121;
+    text-decoration: none;
+    font-weight: 500;
+}
+.main li{
+    list-style-type: none;
+    line-height: 30px;
+}
+main form{
+    text-align: left;
+    box-shadow: 7px 3px 3px rgba(44, 53, 53, 0.5);
+    background:rgba(255, 253, 253, 0.3);
+    border-radius: 5px;
+    width: 100%;
+    height: 80vh;
+}
+.card iframe{
+    box-shadow: 7px 3px 3px rgba(44, 53, 53, 0.5);
+    width: 100%;
+    height: 80vh;
+    border-radius: 5px;
+}
+#input-box{
+    background: transparent;
+    border: 1px solid black;
+    font-weight: 500;
+}
+#input-box:hover{
+    background: rgba(255, 253, 253, 0.5);
+}
+footer a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* .icons{
+    font-size: 2 rem;
+} */
+
+/* ===== STYLES SPÉCIFIQUES POUR LA PAGE CONTACT ===== */
+
+/* Couleurs agricoles personnalisées */
+:root {
+    --agriculture-green: #45bf35;
+    --agriculture-light-green: #18f45a;
+    --agriculture-gold: #d4af37;
+    --agriculture-brown: #8b4513;
+    --agriculture-earth: #a0522d;
+    --agriculture-cream: #f5f5dc;
+    --agriculture-warm: #f4e4bc;
+}
+
+/* Contact Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, var(--agriculture-cream) 0%, var(--agriculture-warm) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contact-grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%232d5a27" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%232d5a27" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%238b4513" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23contact-grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-stats .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #f8f9fa;
+}
+
+.hero-stats .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.hero-stats .stat-item h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--agriculture-green);
+    margin-bottom: 0.5rem;
+}
+
+.hero-stats .stat-item small {
+    color: var(--agriculture-brown);
+    font-weight: 500;
+}
+
+.hero-stats .stat-item i {
+    color: var(--agriculture-gold) !important;
+}
+
+/* Contact Info Cards */
+.contact-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f8f9fa;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--agriculture-green), var(--agriculture-light-green));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover::before {
+    transform: scaleX(1);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--agriculture-green), var(--agriculture-light-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--agriculture-gold), var(--agriculture-earth));
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-card h4 {
+    color: var(--agriculture-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    color: var(--agriculture-brown);
+    margin-bottom: 0.5rem;
+}
+
+.contact-link {
+    color: var(--agriculture-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--agriculture-gold);
+    text-decoration: underline;
+}
+
+/* Contact Form & Map Section */
+.contact-form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #f8f9fa;
+}
+
+.contact-form-container h2 {
+    color: var(--agriculture-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    color: var(--agriculture-green);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-label i {
+    color: var(--agriculture-gold) !important;
+}
+
+.form-control, .form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--agriculture-green);
+    box-shadow: 0 0 0 0.2rem rgba(45, 90, 39, 0.25);
+    outline: none;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--agriculture-green), var(--agriculture-light-green));
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);
+    background: linear-gradient(135deg, var(--agriculture-gold), var(--agriculture-earth));
+}
+
+.btn-outline-success {
+    border: 2px solid var(--agriculture-green);
+    color: var(--agriculture-green);
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    background: var(--agriculture-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Map Container */
+.map-container {
+    background: white; 
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #f8f9fa;
+    height: 100%; 
+}
+
+.map-container h2 {
+    color: var(--agriculture-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.map-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-wrapper iframe {
+    border-radius: 15px;
+}
+
+/* FAQ Section */
+.faq-section {
+    background: linear-gradient(135deg, var(--agriculture-cream) 0%, var(--agriculture-warm) 100%);
+}
+
+.faq-section h2 {
+    color: var(--agriculture-green);
+    background: linear-gradient(135deg, var(--agriculture-green), var(--agriculture-light-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f8f9fa;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--agriculture-gold), var(--agriculture-earth));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover::before {
+    transform: scaleX(1);
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.faq-item h5 {
+    color: var(--agriculture-green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.text-agriculture {
+    color: var(--agriculture-gold) !important;
+}
+
+.faq-item p {
+    color: var(--agriculture-brown);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Social Media Section */
+.social-section {
+    background: linear-gradient(135deg, var(--agriculture-green) 0%, var(--agriculture-light-green) 100%);
+    color: white;
+}
+
+.social-section h2 {
+    color: white;
+}
+
+.social-section p {
+    color: var(--agriculture-cream);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: var(--agriculture-brown);
+    transition: all 0.3s ease;
+    border: 1px solid #f8f9fa;
+    min-width: 120px;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+.social-link i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-link span {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Social Media Colors */
+.social-link.facebook:hover {
+    color: #1877f2;
+    background: linear-gradient(135deg, #1877f2, #42a5f5);
+    color: white;
+}
+
+.social-link.instagram:hover {
+    color: #e4405f;
+    background: linear-gradient(135deg, #e4405f, #f09433);
+    color: white;
+}
+
+.social-link.tiktok:hover {
+    color: #000000;
+    background: linear-gradient(135deg, #000000, #25f4ee);
+    color: white;
+}
+
+.social-link.whatsapp:hover {
+    color: #25d366;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Success Message */
+.success-message {
+    background: linear-gradient(135deg, var(--agriculture-green), var(--agriculture-light-green));
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-stats .stat-item {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-card {
+        margin-bottom: 2rem;
+    }
+    
+    .contact-form-container,
+    .map-container {
+        margin-bottom: 2rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        min-width: 100px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form-container,
+    .map-container {
+        padding: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .faq-item {
+        padding: 1.5rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Form Validation Styles */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control.is-valid {
+    border-color: var(--agriculture-green);
+    box-shadow: 0 0 0 0.2rem rgba(45, 90, 39, 0.25);
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.valid-feedback {
+    color: var(--agriculture-green);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Button States */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .contact-card,
+    .faq-item,
+    .social-link,
+    .btn {
+        transition: none;
+    }
+    
+    .contact-card:hover,
+    .faq-item:hover,
+    .social-link:hover {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .contact-hero,
+    .social-section {
+        display: none;
+    }
+    
+    .contact-card,
+    .contact-form-container,
+    .map-container,
+    .faq-item {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+}

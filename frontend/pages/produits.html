@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - SenAgroLink</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/produits.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-bar">
+            <li class="logo">
+                <a href="../index.html">
+                    <img src="../media/images/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+                </a>
+            </li>
+            <input type="checkbox" id="check">
+            <span class="menu">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="marche.html">Marche</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1 class="display-4 fw-bold mb-4">Nos Produits Agricoles</h1>
+                        <p class="lead mb-4">Découvrez une sélection exceptionnelle de produits frais et locaux, directement de nos agriculteurs partenaires vers votre table.</p>
+                        <div class="hero-stats d-flex gap-4 mb-4">
+                            <div class="stat-item">
+                                <h3 class="text-success fw-bold">500+</h3>
+                                <small>Produits disponibles</small>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="text-success fw-bold">100+</h3>
+                                <small>Agriculteurs</small>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="text-success fw-bold">24h</h3>
+                                <small>Livraison rapide</small>
+                            </div>
+                        </div>
+                        <a href="#categories" class="btn btn-success btn-lg">Explorer les produits</a>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="../media/images/farm1.jpg" alt="Produits agricoles" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtres et recherche -->
+        <section class="filters-section py-4 bg-light">
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Rechercher un produit..." class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option>Toutes les catégories</option>
+                            <option>Légumes</option>
+                            <option>Fruits</option>
+                            <option>Céréales</option>
+                            <option>Intrants</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option>Trier par</option>
+                            <option>Prix croissant</option>
+                            <option>Prix décroissant</option>
+                            <option>Plus récents</option>
+                            <option>Plus populaires</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-success w-100">
+                            <i class="fas fa-filter"></i> Filtrer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catégories de produits -->
+        <section id="categories" class="py-5">
+            <div class="container">
+                <!-- Légumes -->
+                <div class="category-section mb-5" data-aos="fade-up">
+                    <div class="category-header text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">
+                            <i class="fas fa-carrot text-success me-3"></i>
+                            Nos Légumes Frais
+                        </h2>
+                        <p class="lead text-muted">Des légumes cultivés avec soin, récoltés à maturité optimale</p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/Legum8.jpg" alt="Carottes" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-warning">Populaire</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Carottes Bio</h5>
+                                    <p class="product-description">Carottes fraîches et sucrées, cultivées sans pesticides</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">850  FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.8)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/Legum7.jpg" alt="Poivrons" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Poivrons Colorés</h5>
+                                    <p class="product-description">Poivrons rouges, jaunes et verts, parfaits pour vos salades</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">1 900 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="ms-2">(4.2)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/Legum16.jpg" alt="Niambi" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-info">Nouveau</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Niambi </h5>
+                                    <p class="product-description">Niambi frais, idéal pour vos sauces traditionnelles</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">800 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.9)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fruits -->
+                <div class="category-section mb-5" data-aos="fade-up">
+                    <div class="category-header text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">
+                            <i class="fas fa-apple-alt text-success me-3"></i>
+                            Nos Fruits Saisonniers
+                        </h2>
+                        <p class="lead text-muted">Des fruits mûris naturellement, gorgés de saveurs et de vitamines</p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/orange.jpg" alt="Oranges" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-danger">Promo</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Oranges Juteuses</h5>
+                                    <p class="product-description">Oranges sucrées et vitaminées, parfaites pour vos jus</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">1500 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.7)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/mangue.jpg" alt="Mangues" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-warning">Populaire</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Mangues Délicieuses</h5>
+                                    <p class="product-description">Mangues mûres et parfumées, un délice tropical</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">800 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.9)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/banane.jpg" alt="Bananes" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Bananes Locales</h5>
+                                    <p class="product-description">Bananes plantains et dessert, cultivées localement</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">800 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="ms-2">(4.3)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Céréales -->
+                <div class="category-section mb-5" data-aos="fade-up">
+                    <div class="category-header text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">
+                            <i class="fas fa-seedling text-success me-3"></i>
+                            Nos Céréales Locales
+                        </h2>
+                        <p class="lead text-muted">Des céréales de qualité, base de l'alimentation sénégalaise</p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/riz.jpg" alt="Riz" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-primary">Premium</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Riz Local Premium</h5>
+                                    <p class="product-description">Riz de qualité supérieure, cultivé dans la vallée du fleuve</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">350  FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.8)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/petitpoid.jpg" alt="Petits pois" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Lentilles</h5>
+                                    <p class="product-description">Lentilles tendres et sucrés, parfaits pour vos plats</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">1 500 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="ms-2">(4.1)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-card-modern">
+                                <div class="product-image">
+                                    <img src="../media/images/niebe.jpg" alt="Niébé" class="img-fluid">
+                                    <div class="product-badges">
+                                        <span class="badge bg-success">Bio</span>
+                                        <span class="badge bg-info">Nouveau</span>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-shopping-cart"></i> Ajouter
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Niébé </h5>
+                                    <p class="product-description">Niébé locaux, riches en protéines végétales</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">1000 FCFA</span>
+                                        <span class="product-unit">/kg</span>
+                                    </div>
+                                    <div class="product-footer">
+                                        <div class="rating">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-2">(4.6)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm">Commander</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Intrants -->
+        <section class="intrants-section py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4">
+                            <i class="fas fa-tools text-success me-3"></i>
+                            Intrants Agricoles
+                        </h2>
+                        <p class="lead mb-4">
+                            Accédez à une gamme complète d'intrants agricoles de qualité : engrais, semences, outils et équipements. 
+                            Nos fournisseurs partenaires vous garantissent des produits fiables pour optimiser vos récoltes.
+                        </p>
+                        <div class="features-list">
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Engrais biologiques et chimiques</span>
+                            </div>
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Semences certifiées</span>
+                            </div>
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Outils et équipements</span>
+                            </div>
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Livraison rapide</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-success btn-lg mt-3">Voir les intrants</a>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div id="intrantsCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded-4 shadow-lg">
+                                <div class="carousel-item active">
+                                    <img src="../media/images/intrant5.jpg" class="d-block w-100" alt="Intrants agricoles">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../media/images/intrant1.jpeg" class="d-block w-100" alt="Engrais">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../media/images/intrant2.jpeg" class="d-block w-100" alt="Semences">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../media/images/intrant3.jpg" class="d-block w-100" alt="Outils">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../media/images/intrant4.png" class="d-block w-100" alt="Équipements">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#intrantsCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#intrantsCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold mb-4">Prêt à commander vos produits ?</h2>
+                        <p class="lead mb-4">Rejoignez des milliers de clients satisfaits qui font confiance à SenAgroLink pour leurs achats de produits agricoles</p>
+                        <div class="cta-buttons">
+                            <a href="inscription.html" class="btn btn-success btn-lg me-3">Devenir vendeur</a>
+                            <a href="contact.html" class="btn btn-outline-success btn-lg">Nous contacter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-5 p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="left px-2">
+                        <p>
+                            Merci de votre visite chez SenAgroLink. Votre allie pour une meilleure proximite aux produits locaux.
+                        </p>
+                        <div class="social-side d-flex gap-4 ">
+                            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                  </svg>
+                            </a>
+                            <a href="http://www/.instagram.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                  </svg>
+                            </a>
+                            <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                                  </svg>
+                            </a>
+                            <a href="https://wa.me/783712486?text=Vous%20etes%20chez%20Teranga%20gastro%20que%20puisse%20je%20faire%20pour%20vous" 
+                             target="_blank" 
+                             rel="noopener noreferrer" 
+                             data-aos="fade-up" 
+                             data-aos-delay="500" 
+                             data-aos-duration="2500">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                              <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                          </svg>
+
+                         </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="horaire p-2">
+                        <ul>
+                            <h4>Ressources </h4>
+                            <li class="text-white">
+                                <strong class="me-2">Guides agricoles</strong >
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Prix du marche</strong > 
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">FAQ</strong > 
+                            </li>
+                            <li class="text-white">
+                                <strong class="me-2">Blog</strong > 
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="middle px-2 text-white">
+                        <ul class="lh-lg">
+                                <li class="">
+                                    <a href="../index.html">Accueil</a>
+                                </li>
+                                <li class="">
+                                    <a href="produits.html">Produits</a>
+                                </li>
+                                <li class="">
+                                    <a href="marche.html">Marche</a>
+                                </li>
+                                <li class="">
+                                    <a href="inscription.html">Inscription</a>
+                                </li>
+                                <li class="">
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 p-2">
+                    <div class="right px-2">
+                        <form action="">
+                            <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                                <label for="newletter" class="form-label">S'inscrire a notre Newletter</label>
+                                <input type="text" name="newletter" id="newletter" class="form-control">
+                                <button type="submit">S'inscrire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-12">
+                        Copyright 2024 by@SenAgroLink le marché agricole au bout des doigts 
+
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
