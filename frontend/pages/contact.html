@@ -305,25 +305,44 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <ul class="nav-bar">
-            <li class="logo">
-                <a href="../index.html">
-                    <img src="../media/images/SAL.png" alt="logo" style="width: 95px; height: 30px;">
-                </a>
-            </li>
-            <input type="checkbox" id="check">
-            <span class="menu">
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="marche.html">Marche</a></li>
-                <li><a href="inscription.html">Inscription</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <label for="check" class="close-menu"><i class='fas fa-times'></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
+    <header>
+        <nav class="top-bar navbar navbar-expand-lg navbar-light bg-white shadow-sm" style="position: fixed;">
+        <div class="container">
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="../media/images/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="../index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="produits.html">Produits</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="../senagrolink-boutique/Boutique.html">Boutique</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="#">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" href="inscription.html" style="background-color: #2e7d32; color: white;" >Connexion</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
     </nav>
+    </header>
 
     <main>
         <!-- Hero Section -->

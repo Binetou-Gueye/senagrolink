@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
     const receptionMsg = document.getElementById('receptionMsg');
+
+    const toast = document.getElementById('toast');
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    var alertTrigger = document.getElementById('liveAlertBtn')
+
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
     
     // Stocker les utilisateurs dans localStorage
     if (!localStorage.getItem('currentUser')) {
@@ -47,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Redirection après 3 secondes
             setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/agriculteur.html';
             }, 3000);
         } else {
             errorMsg.textContent = "Erreur lors de l\'inscription";
@@ -99,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Redirection après 3 secondes
             setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+                window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
             }, 3000);
         } else {
             errorMsg.textContent = "Erreur lors de l\'inscription";
@@ -167,7 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email_login').value;
         const mot_de_passe = document.getElementById('mot_de_passe_login').value;
 
-        console.log(email,mot_de_passe)
         try {
 
             const response = await fetch('http://localhost/agrolink/backend/api/login.php', {
@@ -179,28 +189,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
         const result = await response.json();
-        console.log()
+        alertPlaceholder.innerHTML = ""
         if (result.success == true) {
             localStorage.setItem('currentUser', JSON.stringify(result.user));            
             
             // Afficher message de succès
-            successMsg.textContent = "Bienvenu!";
-            successMsg.classList.remove('d-none');
-            receptionMsg.classList.remove('d-none');
+            alert('Connexion Reussi :Bienvenu '+ result.user.nom+' !', 'success')
             
             setTimeout(() => {
                 if (result.user.type == "acheteur") {
-                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+                    window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
                 }else{
-                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
+                    window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/agriculteur.html';
                 }
             }, 3000);
             // Redirection après 3 secondes
             
         } else {
-            errorMsg.textContent = "Erreur lors de l\'inscription";
-            errorMsg.classList.remove('d-none');
-            setTimeout(() => errorMsg.classList.add('d-none'), 3000);
+             alert('Login ou mot de passe incorrect !', 'danger')
             return;
         }
     } catch (error) {
@@ -211,29 +217,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }   
 
         // Trouver l'utilisateur
-        const user = users.find(u => u.email === email && u.password === password);
+    //     const user = users.find(u => u.email === email && u.password === password);
         
-        if (user) {
-            // Connexion réussie
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            successMsg.textContent = "Connexion réussie!";
-            successMsg.classList.remove('d-none');
+    //     if (user) {
+    //         // Connexion réussie
+    //         localStorage.setItem('currentUser', JSON.stringify(user));
+    //         successMsg.textContent = "Connexion réussie!";
+    //         successMsg.classList.remove('d-none');
             
-            // Redirection selon le type d'utilisateur
-            setTimeout(() => {
-                window.location.href = user.type === 'farmer' ? 'agriculteur.html' : 'acheteur.html';
-            }, 1500);
-        } else {
-            // Échec de connexion
-            errorMsg.textContent = "Email ou mot de passe incorrect!";
-            errorMsg.classList.remove('d-none');
-            setTimeout(() => errorMsg.classList.add('d-none'), 3000);
-        }
-    });
+    //         // Redirection selon le type d'utilisateur
+    //         setTimeout(() => {
+    //             window.location.href = user.type === 'farmer' ? 'agriculteur.html' : 'acheteur.html';
+    //         }, 1500);
+    //     } else {
+    //         // Échec de connexion
+    //         errorMsg.textContent = "Email ou mot de passe incorrect!";
+    //         errorMsg.classList.remove('d-none');
+    //         setTimeout(() => errorMsg.classList.add('d-none'), 3000);
+    //     }
+    // });
     
     // // Mot de passe oublié
     // document.getElementById('forgotPassword').addEventListener('click', function(e) {
     //     e.preventDefault();
     //     alert("Une demande de réinitialisation de mot de passe a été envoyée à l'administrateur.");
-    // });
+    });
 });

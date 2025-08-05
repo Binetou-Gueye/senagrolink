@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', function(e) {
         document.getElementById('organicCheck').checked = produit.certification =='Agriculture biologique' ? true : false
         document.getElementById('localCheck').checked = produit.certification =='Produit local' ? true : false
     }
+
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
+
     // Inscription Agriculteur
     farmerForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -29,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
             description: document.getElementById('productDescription').value,
             certification: document.getElementById('organicCheck').checked ? 'Agriculture biologique' :  "Produit local"
         };
-                    
+        alertPlaceholder.innerHTML = ""
         try {
 
             const response = await fetch('http://localhost/agrolink/backend/api/produits.php', {
@@ -39,29 +48,17 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 },
                 body: JSON.stringify(productData)
             });
-            setTimeout(() => {
-                window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
-            }, 3000);
 
-    //     const result = await response.json();
-            
-    //     if (result.success == true) {
-    //         localStorage.setItem('currentUser', JSON.stringify(newFarmer));            
-            
-    //         // Afficher message de succès
-    //         successMsg.classList.remove('d-none');
-    //         receptionMsg.classList.remove('d-none');
-            
-    //         // Redirection après 3 secondes
-    //         setTimeout(() => {
-    //             window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/agriculteur.html';
-    //         }, 3000);
-    //     } else {
-    //         errorMsg.textContent = "Erreur lors de l\'inscription";
-    //         errorMsg.classList.remove('d-none');
-    //         setTimeout(() => errorMsg.classList.add('d-none'), 3000);
-    //         return;
-    //     }
+            const result = await response.json();
+            if (result.success == true) {
+                alert('Votre nouveau produit est enregistré avec succés !', 'success')
+                setTimeout(() => {
+                    window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/agriculteur.html';
+                }, 3000);
+            }else{
+                alert('Erreur lors de l\'enregistrement !', 'danger')
+            }
+    
     } catch (error) {
         // const messageDiv = document.getElementById('message');
         // messageDiv.className = 'message error';

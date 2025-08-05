@@ -3,6 +3,6 @@
         localStorage.removeItem("currentUser")
         // Alternative avec délai (2 secondes) si vous voulez afficher un message
         setTimeout(function() {
-            window.location.href = 'http://localhost/agrolink/fontend/pages/inscription.html';
+            window.location.href = 'http://localhost/agrolink/frontend/pages/inscription.html';
         }, 2000);
     });

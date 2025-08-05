@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     updateCart();
                     cartSidebar.classList.remove('active');
 
-                    window.location.href = 'http://localhost/agrolink/fontend/senagrolink-boutique/acheteur.html';
+                    window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
                 } else {
                     alert('Votre panier est vide!');
                 }

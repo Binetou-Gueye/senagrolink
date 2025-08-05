@@ -1,4 +1,8 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SenAgroLink</title>
     <!-- cnd bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -17,7 +21,7 @@
 <body>
     <header id="header">
         <!-- navigation -->
-        <nav>
+        <!-- <nav>
             <ul class="nav-bar">
                 <li class="logo">
                     <a href="#">
@@ -35,7 +39,44 @@
                 </span>
                 <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
             </ul>
-        </nav>
+        </nav> -->
+
+        <nav class="top-bar navbar navbar-expand-lg navbar-light bg-white shadow-sm" style="position: fixed;">
+        <div class="container">
+            <!-- Logo à gauche -->
+            <a class="navbar-brand" href="#">
+                <img src="media/images/SAL.png" alt="logo" style="width: 95px; height: 30px;">
+            </a>
+            
+            <!-- Bouton pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="pages/produits.html">Produits</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="boutique.html">Boutique</a>
+                    </li>
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link" style="color: #2e7d32;" href="pages/contact.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item" style="font-weight: 600;">
+                        <a class="nav-link btn" href="pages/inscription.html" style="background-color: #2e7d32; color: white;" >Connexion</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
+    </nav>
         <div class="header-desc">
             <h1 class="display-4 fw-bold" data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="500" data-aos-easing="ease">SenAgroLink</h1>
             <p class="" data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000" data-aos-easing="ease">Connectez-vous directement avec les agriculteurs du Sénégal. </p>
