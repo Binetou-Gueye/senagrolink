@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("ok")
             // Gestion des formulaires d'inscription
     const farmerForm = document.getElementById('inscriptionFormAgriculteur');
     const buyerForm = document.getElementById('buyerForm');
@@ -21,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Stocker les utilisateurs dans localStorage
     if (!localStorage.getItem('currentUser')) {
         localStorage.setItem('currentUser', {});
+    }else{
+        var user = localStorage.getItem('currentUser')
+        if (user.type == "acheteur") {
+            window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
+        }else{
+            window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/agriculteur.html';
+        }
     }
     
     // Inscription Agriculteur

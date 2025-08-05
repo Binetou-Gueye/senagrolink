@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // alert 
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+    function alert(message, type) {
+        var wrapper = document.createElement('div')
+        wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+        alertPlaceholder.append(wrapper)
+    }
+
+
+
     // Fonction pour extraire les paramètres d'URL
     const user = JSON.parse(localStorage.getItem('currentUser'));
     
@@ -6,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const url = window.location.href;
     var id_boutique = url.split('=')[1]
     id_boutique = decodeURIComponent(id_boutique)
-
+    
     const response = await fetch(`http://localhost/agrolink/backend/api/produits.php?boutique=${id_boutique}`);
     const produits = await response.json();
 
@@ -83,7 +94,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const productCard = this.closest('.product-card');
                     const productName = productCard.querySelector('.product-title').textContent;
                     const id_produit = productCard.querySelector('.product-id').textContent;
-                    console.log(id_produit)
                     const productPriceText = productCard.querySelector('.product-price').textContent;
                     const productPrice = extractPrice(productPriceText);
                     const productImage = productCard.querySelector('.product-img').src;
@@ -225,7 +235,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Passer la commande
             checkoutBtn.addEventListener('click', function() {
                 if (cart.length > 0) {
-                    alert('Commande passée avec succès! Total: ' + cartTotal.textContent);
+                    // alert('Commande passée avec succès! Total: ' + cartTotal.textContent);
                     commande = {
                             "id_utilisateur": user.id,
                             "id_boutique": id_boutique,
@@ -244,10 +254,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     cart = [];
                     updateCart();
                     cartSidebar.classList.remove('active');
+                        alert('Votre commande est enregistré avec succés !', 'success')
 
-                    window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
+                    setTimeout(() => {
+                        window.location.href = 'http://localhost/agrolink/frontend/senagrolink-boutique/acheteur.html';
+                    },3000)
                 } else {
-                    alert('Votre panier est vide!');
+                    cartSidebar.classList.remove('active');
+                    alert('Votre panier est vide!', 'warning')
                 }
             });
             
