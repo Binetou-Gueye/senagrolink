@@ -51,5 +51,16 @@ class Produit {
         $stmt->execute([$id_boutique]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function updateQuantity($id_produit, $quantite) {
+        $updateStmt = $this->pdo->prepare("
+            UPDATE produit 
+            SET quantite_stock = quantite_stock - ? 
+                WHERE id_produit = ? AND quantite_stock >= ?
+            ");
+        $updateStmt->execute([$quantite, $id_produit, $quantite]);
+        return $updateStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

@@ -53,6 +53,20 @@ class Commande {
         ];
     }
 
+    public function getCommandeAvecDetailsOnly($idCommande) {
+
+        // Récupère les détails avec calcul du montant
+        $stmtDetails = $this->pdo->prepare("
+            SELECT d.*, p.nom as produit_nom
+            FROM details_commande d
+            JOIN produit p ON d.id_produit = p.id_produit
+            WHERE d.id_commande = ?
+        ");
+        $stmtDetails->execute([$idCommande]);
+        $details = $stmtDetails->fetchAll(PDO::FETCH_ASSOC);
+        return $details;
+    }
+
     public function getCommandesUtilisateur($idUtilisateur) {
         $stmt = $this->pdo->prepare("
             SELECT c.* FROM commande c
@@ -154,6 +168,7 @@ class Commande {
         $stmt->execute([$id_commande]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function changeStatus($statut, $id_commande) {
         $stmt = $this->pdo->prepare("

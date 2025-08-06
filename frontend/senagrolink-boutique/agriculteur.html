@@ -211,7 +211,7 @@
              </div>
         </div>
     </nav>
-    
+    <div id="liveAlertPlaceholder" style="position: fixed; right: 0%;"></div>   
     <!-- Section Bienvenue -->
     <section class="welcome-section text-center"  style="margin-top: 50px;">
         <div class="container welcome-content">
@@ -621,6 +621,8 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+           
+            
             // Récupérer les données de l'agriculteur depuis le localStorage
             const farmerData = JSON.parse(localStorage.getItem('currentUser')) || {};
             
@@ -766,6 +768,7 @@
                 window.location.href = 'agriculteur.html';
             });
         }
+
     </script>
     <script src="produits.js"></script>
     <script src="commande.js"></script>

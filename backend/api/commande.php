@@ -11,6 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 require_once __DIR__.'/../models/Commande.php';
 require_once __DIR__.'/../models/DetailsCommande.php';
+require_once __DIR__.'/../models/Produit.php';
 
 // Initialisation PDO
 $pdo = new PDO("mysql:host=localhost;dbname=senagrolink", "root", "");
@@ -75,6 +76,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $idCommande = $_GET['id_commande'];
             if ($status=='Validé') {
                 $success = $commande->getCommandesForChangeStatus($idCommande);
+                if ($status=='Validé') {
+                $commande = new Commande($pdo);
+                $produit = new Produit($pdo);
+
+                $details = $commande->getCommandeAvecDetailsOnly($idCommande);
+                
+                foreach ($details as $detail) {
+                    $idProduit = $detail['id_produit'];
+                    $quantite = $detail['quantite'];
+                    error_log("Avant");
+                //     // Appel de la méthode qui décrémente le stock
+                    $successProduit = $produit->updateQuantity($idProduit, $quantite);
+                    error_log("ok");
+                }
+                    $success = $commande->changeStatus($status,$idCommande);
+                }
             }
 
             $success = $commande->changeStatus($status,$idCommande);
