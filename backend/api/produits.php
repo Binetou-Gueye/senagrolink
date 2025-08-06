@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data["certification"],
             $data["categorie"],
             $data["unite_vente"],
+            $data["image_url"]
         );      
         
         echo json_encode(['success' => $success]);

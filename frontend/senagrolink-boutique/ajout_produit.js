@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
     farmerForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         var user = JSON.parse(localStorage.getItem('currentUser'))
-        console.log(typeof(user))
-        console.log(user.boutique)
         // Récupérer les valeurs du formulaire
         const productData = {
             id_agriculteur : user.id,
@@ -36,8 +34,10 @@ document.addEventListener('DOMContentLoaded', function(e) {
             unite_vente: document.getElementById('productUnit').value,
             quantite_stock: document.getElementById('productStock').value,
             description: document.getElementById('productDescription').value,
+            image_url: document.getElementById('productImage').value.split('\\').pop(),
             certification: document.getElementById('organicCheck').checked ? 'Agriculture biologique' :  "Produit local"
         };
+        
         alertPlaceholder.innerHTML = ""
         try {
 

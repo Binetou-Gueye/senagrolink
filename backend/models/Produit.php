@@ -6,13 +6,13 @@ class Produit {
         $this->pdo = $pdo;
     }
 
-    public function creerProduit($idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie) {
+    public function creerProduit($idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie,$image_url) {
         $stmt = $this->pdo->prepare("
             INSERT INTO produit 
-            (id_boutique, nom, description, prix_unitaire, quantite_stock, certification, unite_vente, categorie)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            (id_boutique, nom, description, prix_unitaire, quantite_stock, certification, unite_vente, categorie,image_url)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
-        return $stmt->execute([$idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie]);
+        return $stmt->execute([$idBoutique, $nom, $description, $prixUnitaire, $quantite, $certification, $unite_vente, $categorie,$image_url]);
     }
 
     public function getProduitsByAgriculteur($idUser) {
@@ -26,7 +26,8 @@ class Produit {
             p.unite_vente ,
             p.certification ,
             p.unite_vente ,
-            p.categorie
+            p.categorie,
+            p.image_url
             FROM boutique b, produit p
             WHERE b.id_agriculteur = ? AND p.id_boutique = b.id_boutique
         ");
@@ -44,7 +45,8 @@ class Produit {
             p.unite_vente ,
             p.certification ,
             p.unite_vente ,
-            p.categorie
+            p.categorie,
+            p.image_url
             FROM boutique b, produit p
             WHERE b.id_boutique = ? AND p.id_boutique = b.id_boutique
         ");

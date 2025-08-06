@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.className = 'col-lg-4 col-md-6 animate-fade';
             card.innerHTML = `
                 <div class="product-card">
-                    <img src="pictures/sobleh.jpg"  alt="Oignons Rouges" class="product-img">
+                    <img src="pictures/${produit.image_url}"  alt="Oignons Rouges" class="product-img">
                     <div class="product-body">
                         <p class="product-id" style="display:none;">${produit.id_produit}</p>
                         <h3 class="product-title">${produit.nom}</h3>
